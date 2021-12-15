@@ -23,20 +23,17 @@ document.body.onload = () => {
 
 var glob;
 
- function getData(products) {
-  console.log(products)
-    let res = await fetch(products);
-    let data=await res.json();
+  function getData(data) {
+ // console.log(products)
+    //let res = await fetch(products);
+   // let data=await res.json();
     glob = data;
      console.log(data)
-    showData(data)
+    //showData(data)
 }
-getData(products);
+//getData(products);
 
-function showproducts(product){
-  const newproduct=JSON.parse(product)
-  console.log((newproduct.name))
-}
+
 
 /*SideBar*/
 document.getElementById("ham").onclick = () => {
@@ -100,7 +97,7 @@ function myFunction(){
         })
         // console.log(arr);
         
-        showData(arr);
+       // showData(arr);
     }
     else if(veg.checked == true)
     {
@@ -113,11 +110,11 @@ function myFunction(){
             }
         })
         // console.log(arr);
-        showData(arr);
+      //  showData(arr);
     }
     
     else{
-        showData(glob);
+       // showData(glob);
     }
 }
 /*Filter Code END here*/
@@ -138,6 +135,7 @@ var midContainer=document.getElementById('mid-container')
         
 
 function showData(data){
+  const product=JSON.parse(data)
 
   midContainer1.innerHTML=null
   midContainer2.innerHTML=null
@@ -151,7 +149,7 @@ function showData(data){
   midContainer10.innerHTML=null
 
 
-      data.forEach((prod)=>{
+      product.forEach((prod)=>{
 
         let div=document.createElement("div")
         let div2=document.createElement("div")

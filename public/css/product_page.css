@@ -765,6 +765,8 @@ bottom: 0;
 
 
 /* /* customisable middle  */
+
+
 .custom-middle{
     padding-left: 20px;
     padding-right: 20px;
@@ -805,6 +807,7 @@ gap:10px;
         
 
 /* individual product page.css */
+
 .single-product{
     display: flex;
     width:70%;
@@ -818,6 +821,7 @@ gap:10px;
 }
 .prod-head-name{
     border: 1px solid lightgray;
+
     /* padding: 20px; */
     border-radius: 5px;
 
@@ -934,3 +938,4 @@ margin-top:0;
 color:gray;
 font-weight: bold;
 }
+
