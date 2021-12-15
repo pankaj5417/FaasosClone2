@@ -19,8 +19,27 @@ router.get("/", async(req, res)=>{
 
 })
 
-router.get("/new", async(req, res)=>{
+router.get("/new", async (req, res) => {
   return res.render("products/new")
+});
+
+router.get("/single/:id", async (req, res) => {
+  
+  try {
+    console.log("hello")
+     const product = await Product.findById(req.params.id).lean().exec();
+    console.log(product);
+    return res.render("products/singleProduct", { 
+      product
+     })
+  
+  } catch (e) {
+
+    return res.status(500).json({ message: e.message });
+
+
+     }
+  
 })
 
 
