@@ -1,5 +1,5 @@
 const express = require("express");
-let ejs=require("ejs")
+const ejs=require("ejs")
 
 const { register, login } = require("./controllers/auth.controller");
 
