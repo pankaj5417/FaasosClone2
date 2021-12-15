@@ -87,9 +87,10 @@ var midContainer=document.getElementById('mid-container')
   
   
             readmore.onclick = () => {
-                localStorage.setItem("single-prod", JSON.stringify(prod));
+              localStorage.setItem("single-prod", JSON.stringify(prod));
+              console.log(prod._id);
                
-              window.location.href="single_product.html"
+              window.location.href=`/products/single/${prod._id}`
           }
   
   
