@@ -1,41 +1,45 @@
-import { product_type, customize } from "./export.js";
+//import { product_type, customize } from "./export.js";
 
-import {nav,sid} from "../Nav_bar/navbar.js";
-document.getElementById("navbar").innerHTML = nav;
-document.getElementById("mySidebar").innerHTML = sid;
+//import {nav,sid} from "../Nav_bar/navbar.js";
+//document.getElementById("navbar").innerHTML = nav;
+//document.getElementById("mySidebar").innerHTML = sid;
 
-import foot from "../footer/footer.js";
-document.getElementById("big5").innerHTML = foot;
+//import foot from "../footer/footer.js";
+//document.getElementById("big5").innerHTML = foot;
 
     
 // add customization html code to the html body 
 
-document.body.innerHTML += customize();
+//document.body.innerHTML += customize();
 // console.log(customize());
 /*preloader*/
+/*
 var preloader = document.getElementById("loading");
 document.body.onload = () => {
   preloader.style.display = "none"; 
 }
 
-
+var label = '<%- JSON.stringify(products) %>';
+   // console.log(label)
+   showData(label)
 
 
 var glob;
 
-  function getData(data) {
+  function getData(label) {
  // console.log(products)
     //let res = await fetch(products);
    // let data=await res.json();
-    glob = data;
-     console.log(data)
-    //showData(data)
+    //glob = label;
+    // console.log(data)
+   // showData(label)
 }
 //getData(products);
 
 
 
 /*SideBar*/
+/*
 document.getElementById("ham").onclick = () => {
 document.getElementById("mySidebar").style.width = "370px";
 }
@@ -66,6 +70,8 @@ document.getElementById("logoImg").onclick = () => {
 
 
 /*Filter*/
+
+/*
 document.getElementById("nonveg").addEventListener("click",myFunction);
 document.getElementById("veg").addEventListener("click",myFunction);
 var flag=0
@@ -97,7 +103,7 @@ function myFunction(){
         })
         // console.log(arr);
         
-       // showData(arr);
+        showData(arr);
     }
     else if(veg.checked == true)
     {
@@ -110,14 +116,22 @@ function myFunction(){
             }
         })
         // console.log(arr);
-      //  showData(arr);
+        showData(arr);
     }
     
     else{
-       // showData(glob);
+        showData(glob);
     }
 }
+
+*/
 /*Filter Code END here*/
+
+
+var label = '<%- JSON.stringify(products) %>';
+   // console.log(label)
+   showData(label)
+
 var midContainer=document.getElementById('mid-container')
 
        var midContainer1=document.getElementById("mid-container1")
@@ -135,7 +149,9 @@ var midContainer=document.getElementById('mid-container')
         
 
 function showData(data){
+
   const product=JSON.parse(data)
+  console.log(product)
 
   midContainer1.innerHTML=null
   midContainer2.innerHTML=null

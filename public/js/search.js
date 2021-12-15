@@ -1,5 +1,7 @@
 //const { product_type, customize } =require("/export").Client;
 
+var label = '<%- JSON.stringify(products) %>';
+   // console.log(label)
 
 /*Modal Functioning Of Search*/
 document.getElementById("search").addEventListener("click",search);
@@ -17,7 +19,7 @@ close.addEventListener("click",() => {
 });
 /*Modal Functioning Of Search End*/
 /*Data Searching Code*/
-async function getData() {
+async function getData(label) {
 var searchValue=document.getElementById("searchData-appear").value
 let res=await fetch(`https://618abbc034b4f400177c4860.mockapi.io/api/name?search=${searchValue}`)
 let data=await res.json()
@@ -27,13 +29,16 @@ let data=await res.json()
 /// }
 // })
 console.log(data)
-showData(data)
+showData(label)
 } 
 //getData();
 function showData(data){
+
+  const product=JSON.parse(data)
+
 let midContainer=document.getElementById('searchContent')
 midContainer.innerHTML=null
-data.forEach((prod)=>{
+product.forEach((prod)=>{
    // console.log(prod)
  //  if(sitem==prod.name){
   let div=document.createElement("div")

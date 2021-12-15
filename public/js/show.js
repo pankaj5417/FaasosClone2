@@ -1,4 +1,6 @@
 //import { product_type, customize } from "/export.js";
+var label = '<%- JSON.stringify(products) %>';
+   console.log(label)
 
  
 
