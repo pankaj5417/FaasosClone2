@@ -76,6 +76,7 @@
   /* Image Carousel End */
 
 /*preloader*/
+/*
   #loading{
     position: fixed;
     width:100%;
@@ -83,6 +84,7 @@
     background: #fff url('../profile/image/original.gif') no-repeat center;
     z-index: 5;
 }
+*/
 #logoImg{
     cursor:pointer;
 }

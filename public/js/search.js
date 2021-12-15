@@ -1,7 +1,7 @@
 //const { product_type, customize } =require("/export").Client;
+//var label = '<%- JSON.stringify(products) %>';
+  //  console.log(label)
 
-var label = '<%- JSON.stringify(products) %>';
-   // console.log(label)
 
 /*Modal Functioning Of Search*/
 document.getElementById("search").addEventListener("click",search);
@@ -35,6 +35,7 @@ showData(label)
 function showData(data){
 
   const product=JSON.parse(data)
+  console.log(data)
 
 let midContainer=document.getElementById('searchContent')
 midContainer.innerHTML=null

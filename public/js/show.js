@@ -1,6 +1,8 @@
 //import { product_type, customize } from "/export.js";
+
 var label = '<%- JSON.stringify(products) %>';
-   console.log(label)
+  
+console.log(label)
 
  
 
@@ -39,7 +41,8 @@ var midContainer=document.getElementById('mid-container')
         product.forEach((prod)=>{
 
            // console.log(prod.name)
-  
+
+          
           let div=document.createElement("div")
           let div2=document.createElement("div")
           let div3=document.createElement("div")
@@ -62,7 +65,7 @@ var midContainer=document.getElementById('mid-container')
            prod_name.style.width="75%"
            let prod_price=document.createElement("p")
             let btn_img = document.createElement("img");
-         // btn_img.src=  product_type(prod, btn_img);
+          btn_img.src=  product_type(prod, btn_img);
            
            btn_img.style.width="12px"
            btn_img.style.height="12px"
@@ -136,7 +139,6 @@ var midContainer=document.getElementById('mid-container')
             addToCart.className = "addtoCartBtn"
             
             
-  
         
   
       /*
@@ -834,6 +836,8 @@ name.innerText = arr2[arr2.length - 1].name2;
 
 
 //function for customizable option 
+
+
 function show_customize(prod) {
     let parent = document.querySelector(".custom-middle");
     let type_src = product_type(prod);
@@ -861,3 +865,12 @@ function show_customize(prod) {
 }
 
 
+function product_type(prod) {
+  if (prod.type === 'veg') {
+           
+     
+      return "https://png.pngitem.com/pimgs/s/151-1515150_veg-icon-png-circle-transparent-png.png";
+       } else {
+      return  "https://www.vhv.rs/dpng/d/437-4370761_non-veg-icon-non-veg-logo-png-transparent.png";
+       }
+}
