@@ -874,3 +874,23 @@ function product_type(prod) {
       return  "https://www.vhv.rs/dpng/d/437-4370761_non-veg-icon-non-veg-logo-png-transparent.png";
        }
 }
+
+
+function customize() {
+  return `   <!-- div for customization -->
+          <div class="custom-parent">
+            <div class="custom">
+              <div class="custom-top">
+                <div id="custom-close"><i class="fas fa-times"></i></div>
+                <div>Customization</div>
+              </div>
+              <div class="custom-middle">
+                     
+              </div>
+              <div class="custom-bottom">
+                <p>Apply</p>
+              </div>
+            </div>
+          </div>
+          <!-- end of customization div -->`;
+}
