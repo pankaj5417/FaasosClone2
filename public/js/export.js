@@ -29,4 +29,9 @@ function product_type(prod) {
 }
 
 
-//export {product_type,customize};
+function hello() {
+    console.log("hello")
+}
+
+
+export {hello}

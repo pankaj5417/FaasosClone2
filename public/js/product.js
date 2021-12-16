@@ -828,11 +828,11 @@ document.getElementById("custom-close").addEventListener("click",()=> {
     document.querySelector(".custom-parent").classList.remove("active-custom");
     
 });
-//
-//login to name 
-let name = document.getElementById("showName")
-let arr2 = JSON.parse(localStorage.getItem("current"))
-name.innerText = arr2[arr2.length - 1].name2;
+// //
+// //login to name 
+// let name = document.getElementById("showName")
+// let arr2 = JSON.parse(localStorage.getItem("current"))
+// name.innerText = arr2[arr2.length - 1].name2;
 
 
 

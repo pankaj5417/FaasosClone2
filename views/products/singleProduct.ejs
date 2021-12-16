@@ -24,6 +24,9 @@
 
     <title>Individual product pages</title>
     <link href="/css/product_page.css" rel="stylesheet" type="text/css">
+    <link href="/css/footer.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/navbar.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body onload="show_prod('<%= JSON.stringify(product) %>')">
@@ -41,8 +44,10 @@
 
     </div>
     <div id="big5"></div>
-
+    
     <script src="/js/singleProduct.js"></script>
+    <script type=module src="/js/single_export.js"></script>
+
 
 </body>
 

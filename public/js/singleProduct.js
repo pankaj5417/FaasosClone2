@@ -31,6 +31,11 @@ function show_prod(prod) {
     prod = JSON.parse(prod);
     console.log(prod)
     console.log(prod.category)
+
+    let current_prod = document.getElementById("prod");
+
+current_prod.innerHTML = prod.name;
+
     let div1 = document.createElement("div");
     div1.setAttribute("class", "prod-img")
     div1.innerHTML = `<img src="${prod.img}" / >`;
