@@ -1,22 +1,20 @@
-
-
 function show_prod(prod) {
     let parent = document.querySelector(".single-product");
     console.log(parent)
     parent.innerHTML = null;
-    
-    
+
+
     prod = JSON.parse(prod);
     console.log(prod)
     console.log(prod.category)
     let div1 = document.createElement("div");
-    div1.setAttribute("class","prod-img")
+    div1.setAttribute("class", "prod-img")
     div1.innerHTML = `<img src="${prod.img}" / >`;
 
     let div2 = document.createElement("div");
 
     let div3 = document.createElement("div");
-    div3.setAttribute("class","prod-head")
+    div3.setAttribute("class", "prod-head")
     let div4 = document.createElement("div");
     div4.innerHTML = prod.name;
     let div5 = document.createElement("div");
@@ -34,8 +32,8 @@ function show_prod(prod) {
 
     div8.addEventListener("click", () => {
         document.querySelector(".custom-parent").classList.add("active-custom");
-              show_customize(prod);
-        
+        show_customize(prod);
+
     })
 
     let div_top = document.createElement("div");
@@ -47,21 +45,21 @@ function show_prod(prod) {
     div9.setAttribute("class", "prod-description")
 
     let div10 = document.createElement("div");
-        div10.setAttribute("class", "tag")
+    div10.setAttribute("class", "tag")
 
     let div11 = document.createElement("div");
 
     div11.innerHTML = `<p>Tags<p>`;
-    
+
     for (let i = 0; i < prod.tags.length; i++) {
 
         let div = document.createElement("div");
         div.innerHTML = `${prod.tags[i]}`
         div10.append(div)
     }
-    
 
-    div2.append(div_top,div9,div11, div10);
+
+    div2.append(div_top, div9, div11, div10);
 
     parent.append(div1, div2);
 
@@ -71,14 +69,14 @@ function show_prod(prod) {
 // // close custom 
 // document.getElementById("custom-close").addEventListener("click",()=> {
 //     document.querySelector(".custom-parent").classList.remove("active-custom");
-    
+
 // });
 // //
 // document.querySelector(".custom-bottom").addEventListener("click", () => {
 //     document.querySelector(".custom-parent").classList.remove("active-custom");
-   
+
 //      let products_cart=JSON.parse(localStorage.getItem("FaasosCart"));
-    
+
 //     products_cart.push(prod);
 //     localStorage.setItem("FaasosCart", JSON.stringify(products_cart));
 //     window.location.href = "./productpage.html"
@@ -88,13 +86,11 @@ function show_prod(prod) {
 // });
 
 function product_type(prod) {
-     if (prod.type === 'veg') {
-              
-        
-         return "https://png.pngitem.com/pimgs/s/151-1515150_veg-icon-png-circle-transparent-png.png";
-          } else {
-         return  "https://www.vhv.rs/dpng/d/437-4370761_non-veg-icon-non-veg-logo-png-transparent.png";
-          }
+    if (prod.type === 'veg') {
+
+
+        return "https://png.pngitem.com/pimgs/s/151-1515150_veg-icon-png-circle-transparent-png.png";
+    } else {
+        return "https://www.vhv.rs/dpng/d/437-4370761_non-veg-icon-non-veg-logo-png-transparent.png";
+    }
 }
-
-

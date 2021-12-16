@@ -1,5 +1,5 @@
 const express = require("express");
-const ejs=require("ejs")
+const ejs = require("ejs")
 
 const { register, login } = require("./controllers/auth.controller");
 
@@ -15,10 +15,10 @@ app.post("/register", register);
 app.post("/login", login);
 
 
-app.use(express.urlencoded({extended: false }))
+app.use(express.urlencoded({ extended: false }))
 
 app.use(express.static("public"))
-app.set("view engine","ejs")
+app.set("view engine", "ejs")
 
 
 
