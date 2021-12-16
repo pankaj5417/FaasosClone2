@@ -19,17 +19,27 @@ const register = async (req, res) => {
       });
 
     // else we will create the user we will hash the password as plain text password is harmful
-    user = await User.create(req.body);
+    user = await User.create({
+      name: req.body.name,
+      email: req.body.email,
+      phone: req.body.phone,
+    }
+      
+    );
+    
 
     // we will create the token
     const token = newToken(user);
 
+    
     // return the user and the token
     res.status(201).json({ user, token });
   } catch (e) {
-    return res.status(500).json({ status: "failed", message: e.message });
+    return res.status(500).json({ status: "suman", message: e.message });
   }
 };
+
+
 
 const login = async (req, res) => {
   try {
