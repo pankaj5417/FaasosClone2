@@ -1,3 +1,27 @@
+
+document.body.innerHTML += customize();
+console.log(customize());
+//to set non - veg and veg image
+function customize() {
+    return `   <!-- div for customization -->
+            <div class="custom-parent">
+              <div class="custom">
+                <div class="custom-top">
+                  <div id="custom-close"><i class="fas fa-times"></i></div>
+                  <div>Customization</div>
+                </div>
+                <div class="custom-middle">
+                       
+                </div>
+                <div class="custom-bottom">
+                  <p>Apply</p>
+                </div>
+              </div>
+            </div>
+            <!-- end of customization div -->`;
+}
+
+
 function show_prod(prod) {
     let parent = document.querySelector(".single-product");
     console.log(parent)
@@ -66,24 +90,24 @@ function show_prod(prod) {
 }
 
 
-// // close custom 
-// document.getElementById("custom-close").addEventListener("click",()=> {
-//     document.querySelector(".custom-parent").classList.remove("active-custom");
+// close custom 
+document.getElementById("custom-close").addEventListener("click",()=> {
+    document.querySelector(".custom-parent").classList.remove("active-custom");
 
-// });
-// //
-// document.querySelector(".custom-bottom").addEventListener("click", () => {
-//     document.querySelector(".custom-parent").classList.remove("active-custom");
+});
+//
+document.querySelector(".custom-bottom").addEventListener("click", () => {
+    document.querySelector(".custom-parent").classList.remove("active-custom");
 
-//      let products_cart=JSON.parse(localStorage.getItem("FaasosCart"));
+     let products_cart=JSON.parse(localStorage.getItem("FaasosCart"));
 
-//     products_cart.push(prod);
-//     localStorage.setItem("FaasosCart", JSON.stringify(products_cart));
-//     window.location.href = "./productpage.html"
+    products_cart.push(prod);
+    localStorage.setItem("FaasosCart", JSON.stringify(products_cart));
+    window.location.href = "./productpage.html"
 
 
-//     // cartData();
-// });
+    // cartData();
+});
 
 function product_type(prod) {
     if (prod.type === 'veg') {
@@ -93,4 +117,38 @@ function product_type(prod) {
     } else {
         return "https://www.vhv.rs/dpng/d/437-4370761_non-veg-icon-non-veg-logo-png-transparent.png";
     }
+}
+
+
+
+
+
+
+
+//function for customizable option 
+function show_customize(prod) {
+    let parent = document.querySelector(".custom-middle");
+    let type_src = product_type(prod);
+    console.log(type_src)
+    parent.innerHTML = `<div class="head">
+    <div><img src = ${type_src} /></div>
+    <div><h3>${prod.name}</h3></div>
+    </div>
+    <div><p> MAKE YOUR FAVOURITE MEAL </p></div>
+    <div class="custom-option">
+    <div class = "option">
+    <div class = "option-head">
+    <div><img src ="https://png.pngitem.com/pimgs/s/151-1515150_veg-icon-png-circle-transparent-png.png" />Potato Wedges (Medium) Thums Up (250ml)</div>
+    <div>	&#8377 87<input type="checkbox" id="vehicle2" name="" value="87"></div>
+    </div>
+    </div>
+
+    <div class = "option-head">
+    <div><img src ="https://png.pngitem.com/pimgs/s/151-1515150_veg-icon-png-circle-transparent-png.png" />Coke 330 ml.</div>
+    <div>	&#8377 57<input type="checkbox" id="" name="" value="55"></div>
+    </div>
+    </div>
+    </div>`
+        ;
+
 }
