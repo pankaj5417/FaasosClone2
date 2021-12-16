@@ -28,4 +28,4 @@ function product_type(prod) {
 }
 
 
-export {product_type,customize};
+//export {product_type,customize};
