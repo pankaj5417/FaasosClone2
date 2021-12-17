@@ -381,7 +381,8 @@ var midContainer10 = document.getElementById("mid-container10")
 
     P1.addEventListener("click", myFunction1)
     function myFunction1() {
-      // var elmnt = document.getElementById("midContainer1");
+       let elmnt = document.getElementById("mid-container1");
+       elmnt.scrollIntoView();
       //P1.style.color="black"
 
       window.scrollTo(0, 200);
@@ -390,55 +391,65 @@ var midContainer10 = document.getElementById("mid-container10")
 
     P2.addEventListener("click", myFunction2)
     function myFunction2() {
-      var elmnt = document.getElementById("midContainer2");
-      //elmnt.scrollIntoView();
+      let elmnt1 = document.getElementById("mid-container2");
+      elmnt1.scrollIntoView();
 
 
-      window.scrollTo(0, 1570);
+      //window.scrollTo(0, 1570);
     }
 
     P3.addEventListener("click", myFunction3)
     function myFunction3() {
       var elmnt = document.getElementById("mid-container3");
-      // elmnt.scrollIntoView();
-      window.scrollTo(0, 3700);
+       elmnt.scrollIntoView();
+      //window.scrollTo(0, 3700);
 
     }
     P4.addEventListener("click", myFunction4)
     function myFunction4() {
-      //var elmnt = document.getElementById("mid-container4");
-      window.scrollTo(0, 5050);
+      var elmnt = document.getElementById("mid-container4");
+      elmnt.scrollIntoView();
+     // window.scrollTo(0, 5050);
     }
     P5.addEventListener("click", myFunction5)
     function myFunction5() {
-      // var elmnt = document.getElementById("mid-container5");
-      window.scrollTo(0, 6830);
+       var elmnt = document.getElementById("mid-container5");
+       elmnt.scrollIntoView();
+     // window.scrollTo(0, 6830);
     }
     P6.addEventListener("click", myFunction6)
     function myFunction6() {
-      var elmnt = document.getElementById("mid-container5");
-      window.scrollTo(0, 7780);
+      var elmnt = document.getElementById("mid-container6");
+
+      elmnt.scrollIntoView();
+
+     // window.scrollTo(0, 7780);
     }
     P7.addEventListener("click", myFunction7)
     function myFunction7() {
-      var elmnt = document.getElementById("mid-container5");
-      window.scrollTo(0, 8700);
+      var elmnt = document.getElementById("mid-container7");
+      elmnt.scrollIntoView();
+     // window.scrollTo(0, 8700);
     }
 
     P8.addEventListener("click", myFunction8)
     function myFunction8() {
-      var elmnt = document.getElementById("mid-container5");
-      window.scrollTo(0, 9600);
+      var elmnt = document.getElementById("mid-container8");
+      elmnt.scrollIntoView();
+     // window.scrollTo(0, 9600);
     }
     P9.addEventListener("click", myFunction9)
     function myFunction9() {
-      var elmnt = document.getElementById("mid-container5");
-      window.scrollTo(0, 10500);
+      var elmnt = document.getElementById("mid-container9");
+
+      elmnt.scrollIntoView();
+     // window.scrollTo(0, 10500);
     }
     P10.addEventListener("click", myFunction10)
     function myFunction10() {
-      var elmnt = document.getElementById("mid-container5");
-      window.scrollTo(0, 11430);
+      var elmnt = document.getElementById("mid-container10");
+      elmnt.scrollIntoView();
+      //window.scrollTo(0, 11430);
     }
     //scroll function ends
 
