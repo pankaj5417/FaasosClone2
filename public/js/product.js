@@ -381,22 +381,38 @@ var midContainer10 = document.getElementById("mid-container10")
 
     P1.addEventListener("click", myFunction1)
     function myFunction1() {
+      var flag=1
        let elmnt = document.getElementById("mid-container1");
        elmnt.scrollIntoView();
       //P1.style.color="black"
-
+      if(flag){
+        P1.style.color="black"
+        flag=0
+      }
+      
+  
       window.scrollTo(0, 200);
 
     }
-
+    
     P2.addEventListener("click", myFunction2)
+    
     function myFunction2() {
+     var flag2=1
       let elmnt1 = document.getElementById("mid-container2");
+    
       elmnt1.scrollIntoView();
 
+   if(flag2){
+     P2.style.color="black"
+     flag2=0
+   }
+    
 
       //window.scrollTo(0, 1570);
     }
+
+    
 
     P3.addEventListener("click", myFunction3)
     function myFunction3() {
@@ -468,6 +484,7 @@ var midContainer10 = document.getElementById("mid-container10")
        }
        */
 
+/*
     document.body.onscroll = function () { myFunction() };
 
     function myFunction() {
@@ -586,7 +603,7 @@ var midContainer10 = document.getElementById("mid-container10")
 
       }
     }
-
+*/
 
 
     if (prod.category == "Fab Wraps starting at 99 each") {
