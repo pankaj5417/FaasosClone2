@@ -2,18 +2,31 @@ require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const User = require("../models/user.model");
 
+const { body, validationResult } = require('express-validator');
+
 const newToken = (user) => {
   return jwt.sign({ user: user }, process.env.JWT_ACCESS_KEY);
 };
 
-const register = async (req, res) => {
+const register =  async  (req, res) =>{
+  
   try {
+    const errors=validationResult(req);
+        if(!errors.isEmpty()){
+            let a =errors.array().map(({msg,param,location})=>{
+                return {
+                    [param]:msg
+                }
+        })
+        
+    }
     // check if the email address provided already exist
+
     let user = await User.findOne({ email: req.body.email }).lean().exec();
 
     // if it already exists then throw an error
     if (user)
-      return res.status(400).json({
+      error =  res.status(400).json({
         status: "failed",
         message: " Please provide a different email address",
       });
@@ -33,14 +46,14 @@ const register = async (req, res) => {
 
     
     // return the user and the token
-    res.status(201).json({ user, token });
+    return res.redirect("/products")
   } catch (e) {
     return res.status(500).json({ status: "suman", message: e.message });
   }
 };
 
 
-
+var error;
 const login = async (req, res) => {
   try {
     // check if the email address provided already exist
@@ -48,7 +61,7 @@ const login = async (req, res) => {
 
     // if it does not exist then throw an error
     if (!user)
-      return res.status(400).json({
+       error = res.status(400).json({
         status: "failed",
         message: " Please provide correct email address and password",
       });
@@ -62,10 +75,10 @@ const login = async (req, res) => {
     const token = newToken(user);
 
     // return the user and the token
-    res.status(201).json({ user, token });
+    return res.redirect("/products")
+
   } catch (e) {
     return res.status(500).json({ status: "failed", message: e.message });
   }
 };
-
-module.exports = { register, login };
+module.exports = { register, login, error };
