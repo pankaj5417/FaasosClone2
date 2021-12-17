@@ -1,7 +1,9 @@
-//import { product_type, customize } from "/export.js";
-var label = '<%- JSON.stringify(products) %>';
-   console.log(label)
-
+ /*
+ function showproducts(product){
+    const newproduct=JSON.parse(product)
+   // console.log((newproduct.name))
+  }
+*/
  
 
 var midContainer=document.getElementById('mid-container')
@@ -87,10 +89,9 @@ var midContainer=document.getElementById('mid-container')
   
   
             readmore.onclick = () => {
-              localStorage.setItem("single-prod", JSON.stringify(prod));
-              console.log(prod._id);
+                localStorage.setItem("single-prod", JSON.stringify(prod));
                
-              window.location.href=`/products/single/${prod._id}`
+              window.location.href="single_product.html"
           }
   
   
@@ -642,222 +643,4 @@ var midContainer=document.getElementById('mid-container')
   
   /*mid end*/
   
-
-
-  //cart page
-
-
-  var kart = JSON.parse(localStorage.getItem("FaasosCart"));
-
-
-//cart data();
-function cartData() {
-
-
-  var cartItem = document.getElementById("cart-item");
-
-  //cartItem.innerHTML=null
-    if (kart.length === 0 || kart === null) {
-        document.getElementById("cart-head").innerText = "Empty cart";
-        document.getElementById("qty").style.display = "none";
-        document.getElementById("cart-head-2").style.display = "none"
-        let cart = document.getElementById("cart-center");
-        cart.style.display = "none";
-        document.getElementById("empty-cart").style.display = "block"
-        return;
-    }
-        document.getElementById("cart-head").innerText = "cart";
-document.getElementById("qty").style.display = "block";
-        document.getElementById("cart-head-2").style.display = "block"
-    let cart_center = document.getElementById("cart-center");
-        cart_center.style.display = "block";
-        document.getElementById("empty-cart").style.display = "none"
-    
-    let qty = document.getElementById("qty");
-
-    let cart = document.getElementById("cart-item");
-    cart.innerHTML = null;
-
-var count=0;
-    // console.log(kart)
-    if (kart === null) {
-        return 
-    }
-    
-    kart.forEach((item) => {
-        count++
-        qty.innerHTML = count;
-        console.log(item.name)
-        let div = document.createElement("div")
-        let div2 = document.createElement("div")
-        let product_name = document.createElement("p")
-        product_name.innerText = item.name
-        product_name.style.width = "90%"
-        let product_price = document.createElement("p")
-        product_price.innerText = "₹" + item.price
-        //product_price.style.marginLeft="7px"
-       // let buttonLeft = document.createElement("button");
-
-        let buttonLeft=document.createElement("img")
-        buttonLeft.src="https://github.com/pankaj5417/koovs.com/blob/main/icons/leftbtn.png?raw=true"
-       
-        let buttonRight=document.createElement("img")
-        buttonRight.src="https://github.com/pankaj5417/koovs.com/blob/main/icons/right btn.png?raw=true"
-       
-       
-      
-        buttonLeft.style.width="43px"
-        buttonLeft.style.marginRight="3px"
-      let itemNo=document.createElement("p")
-        itemNo.innerText="1"
-       // buttonRight.innerText="+"
-        buttonLeft.style.backgroundColor="white"
-        buttonRight.style.backgroundColor="white"
-        buttonRight.style.width="40px"
-        buttonRight.style.height="40px"
-        buttonLeft.style.height="40px"
-      
-        buttonRight.style.marginLeft="7px"
-        buttonLeft.style.cursor="pointer"
-        buttonRight.style.cursor="pointer"
-
-
-
-         buttonLeft.addEventListener('click', (event) => {
-               
-             let kart = JSON.parse(localStorage.getItem("FaasosCart"));
-             let index = kart.indexOf(item);
-            //  console.log(index)
-            kart.splice(index, 1);
-          // kart.removeItem(item)
-
-             localStorage.setItem("FaasosCart", JSON.stringify(kart));
-
-
-              var total = kart.reduce(function (ac, el) {
-
-            return ac + Number(el.price)
-        }, 0)
-        var total_pr = document.getElementById("total")
-          
-        total_pr.innerHTML = '₹' + "" + total
-             
-             cartData();
-              });
-    
-    
-              //adding addcustomisabe to right button 
-          buttonRight.addEventListener('click', (event) => {
-                      //adding custimable to +button
-              document.querySelector(".custom-parent").classList.add("active-custom");
-              show_customize(item);
-
-                  
-                
-          });
-        
-        
-          //apply custom 
-       
-        
-
-
-        let btn_img = document.createElement("img")
-
-        if (item.type === 'veg') {
-            
-            btn_img.src = "https://png.pngitem.com/pimgs/s/151-1515150_veg-icon-png-circle-transparent-png.png"
-        } else {
-            btn_img.src = "https://www.vhv.rs/dpng/d/437-4370761_non-veg-icon-non-veg-logo-png-transparent.png"
-        }
-        btn_img.style.width = "12px"
-        btn_img.style.height = "12px"
-
-        div2.append(buttonLeft, itemNo, buttonRight)
-        div2.style.display = "flex"
-        div2.style.alignItems="center"
-        div2.style.width = "22%"
-        div2.style.marginLeft = "2%"
-        let div3 = document.createElement("div")
-        div3.append(btn_img, product_name)
-        div3.style.display = "flex"
-        div3.style.alignItems = "center"
-        div3.style.width = "65%"
-        div3.style.justifyContent = "space-between"
-
-
-
-        
-        div.append(div3, div2, product_price)
-        product_price.style.width = "10%"
-        product_price.style.marginLeft = "8%"
-
-        div.style.display = "flex"
-        div.style.alignItems="center"
-        div.style.width = "100%"
-        cartItem.append(div)
-
-        var total = kart.reduce(function (ac, el) {
-
-            return ac + Number(el.price)
-        }, 0)
-        var total_pr = document.getElementById("total")
-          
-        total_pr.innerHTML = '₹' + "" + total
-        total_pr.style.marginLeft
-          
-    });
-}
-cartData();
-
-let checkouts=document.getElementById("checkout")
-checkouts.onclick = () => {
-    window.location.href = "cart2.html";
-}
-//function gotoCart(){
-//}
-
-// close custom 
-document.getElementById("custom-close").addEventListener("click",()=> {
-    document.querySelector(".custom-parent").classList.remove("active-custom");
-    
-});
-//
-//login to name 
-let name = document.getElementById("showName")
-let arr2 = JSON.parse(localStorage.getItem("current"))
-name.innerText = arr2[arr2.length - 1].name2;
-
-
-
-
-
-
-//function for customizable option 
-function show_customize(prod) {
-    let parent = document.querySelector(".custom-middle");
-    let type_src = product_type(prod);
-    parent.innerHTML = `<div class="head">
-    <div><img src = ${type_src} /></div>
-    <div><h3>${prod.name}</h3></div>
-    </div>
-    <div><p> MAKE YOUR FAVOURITE MEAL </p></div>
-    <div class="custom-option">
-    <div class = "option">
-    <div class = "option-head">
-    <div><img src ="https://png.pngitem.com/pimgs/s/151-1515150_veg-icon-png-circle-transparent-png.png" />Potato Wedges (Medium) Thums Up (250ml) </div>
-    <div>	&#8377 87<input type="checkbox" id="vehicle2" name="" value="87"></div>
-    </div>
-    </div>
-
-    <div class = "option-head">
-    <div><img src ="https://png.pngitem.com/pimgs/s/151-1515150_veg-icon-png-circle-transparent-png.png" />Coke 330 ml.</div>
-    <div>	&#8377 57<input type="checkbox" id="" name="" value="55"></div>
-    </div>
-    </div>
-    </div>`
-        ;
-
-}
-
 

@@ -46,7 +46,7 @@ const login = async (req, res) => {
     // else we match the password
 
     // if not match then throw an error
-    
+
 
     // if it matches then create the token
     const token = newToken(user);

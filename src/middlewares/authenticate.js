@@ -37,7 +37,7 @@ module.exports = async (req, res, next) => {
   if (!user)
     return res.status(400).json({
       status: "failed",
-      message: " Please provide a valid token",
+      message: " Please provide a valid User",
     });
 
   // else we will attach the user to the req
