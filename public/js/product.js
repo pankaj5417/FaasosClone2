@@ -386,7 +386,7 @@ var midContainer10 = document.getElementById("mid-container10")
        elmnt.scrollIntoView();
       //P1.style.color="black"
       if(flag){
-        P1.style.color="black"
+        P1.style.fontWeight="bold"
         flag=0
       }
       
@@ -403,15 +403,23 @@ var midContainer10 = document.getElementById("mid-container10")
     
       elmnt1.scrollIntoView();
 
-   if(flag2){
-     P2.style.color="black"
+   if(P2.top==elmnt1.top){
+     P2.style.fontWeight="bold"
+     P1.style.fontWeight="normal"
      flag2=0
    }
     
 
       //window.scrollTo(0, 1570);
     }
-
+    document.body.onscroll =()=>{
+    if(P2.offsetTop==elmnt1.offsetTop){
+      P2.style.fontWeight="bold"
+      P1.style.fontWeight="normal"
+     
+    }
+     
+  }
     
 
     P3.addEventListener("click", myFunction3)
