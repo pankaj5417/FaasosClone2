@@ -387,4 +387,155 @@ padding-top: 7%;
 padding-top: 8%;
 }
 
+@media screen and (max-width: 480px){
+
+  #topBox{
+    display:grid;
+    grid-template-columns: 58% 42%;
+    grid-template-rows: 94%;
+    margin-left: -0.5%;
+    margin-top: -0.5%;
+  }
+  #leftBox{
+    width:100%;
+    background-image: url(https://assets.faasos.io/faasos_v2/brandPattern.png);
+  }
+  #leftBox > h1:nth-child(2){
+  color: white;
+  font-size: 18px;
+  margin: 11% 0% 0% 13%;
+  }
+  #rightBox > img{
+    width:571px;
+    height:400px;
+    border-bottom-left-radius: 4%;
+  }
+  #logoLine{
+    display: grid;
+    grid-template-columns: 10% 60%;
+    grid-template-rows: 20%;
+    grid-gap: 40%;
+    margin:12% 0% 0% 13%;
+  }
+  #logoLine > img:nth-child(1){
+    width:250%;
+  }
+  #logoLine > div:nth-child(2){
+    display:grid;
+    grid-template-columns: 30% 42%;
+    grid-gap: 2%;
+    font-size: 12px;
+    padding-top: 4%;
+  }
+  #logoLine > div:nth-child(2) > div:nth-child(1){
+    padding:10% 0% 0% 10%;
+    color: rgb(255, 211, 68);
+    font-weight: 200;
+    cursor: pointer;
+  }
+  #logoLine > div:nth-child(2) > div:nth-child(2){
+    padding:3% 0% 0% 13%;
+    color: rgb(255, 211, 68);
+    font-weight: 800;
+    border: 1px solid rgb(255, 211, 68);
+    border-radius: 0.4rem;
+    cursor: pointer;
+  } 
+  #head{
+    width:100%;
+    color: rgb(51, 51, 51);
+    font-weight: 600;
+    font-size: 17.5px;
+    margin-top:5%;
+    margin-left:35%;
+  }
+  #head2{width:100%;
+    font-family: Muli, sans-serif;
+    color: rgb(126, 126, 126);
+    font-size: 10px;
+    white-space: normal;
+    margin-top: -1%;
+    margin-left: 36%;
+  }
+  #middle{
+    width:100%;
+    font-family: Muli, sans-serif;
+    margin:4% 0% 0% 25%;
+    display:grid;
+    grid-template-columns: 54% 25%;
+    grid-gap: 10%;
+    }
+    #middleLeft > div:nth-child(1){
+    display:grid;
+    font-size: 10px;
+    grid-template-columns: 30% 70%;
+    grid-gap:2%;
+    }
+    #middleLeft > div:nth-child(2){
+    margin-top: 2%;
+    display:grid;
+    font-size: 10px;
+    grid-template-columns: 30% 70%;
+    grid-gap:2%;
+    }
+    #middleLeft > div:nth-child(3){
+    margin-top: 2%;
+    display:grid;
+    font-size: 10px;
+    grid-template-columns: 30% 70%;
+    grid-gap:2%;
+    }
+    #middleRight > iframe{
+    border-radius: 3%;
+    width:260px;
+    height:160px;
+    }
+    #middleLeft > div:nth-child(1) > div:nth-child(2){
+    padding-top: 1%;
+    line-height: 1rem;
+    }
+    #middleLeft > div:nth-child(2) > div:nth-child(2){
+    padding-top: 3%;
+    }
+    #middleLeft > div:nth-child(3) > div:nth-child(2){
+    padding-top: 3%;
+    }
+    #middleLeft > div:nth-child(1) > div:nth-child(1){
+    background-color: rgb(86, 64, 153);
+    border-radius: 12%;
+    padding:2%;
+    }
+    #middleLeft > div:nth-child(2) > div:nth-child(1){
+    background-color: rgb(86, 64, 153);
+    border-radius: 12%;
+    padding:2%;
+    }
+    #middleLeft > div:nth-child(3) > div:nth-child(1){
+    background-color: rgb(86, 64, 153);
+    border-radius: 12%;
+    padding:2%;
+    }
+
+    #lower{
+      width:180%;
+      font-family: Muli, sans-serif;
+      font-size: 15px;
+      background-color: rgb(86, 64, 153);
+      }
+      #lower-box{
+      width:160%;
+      margin-left: 10%;
+      margin-top: 8%;
+      transform: translate(0px, 15px);
+      margin-bottom: -9%;
+      padding:1.1%;
+      display: grid;
+      text-align: center;
+      grid-gap:1.1%;
+      background-color: rgb(107, 85, 205);
+      grid-template-columns: 17% 15% 16% 17% 16% 10%;
+      border-radius: 25px/15%;
+      }
+}
+
 
