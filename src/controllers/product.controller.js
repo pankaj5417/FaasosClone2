@@ -19,9 +19,7 @@ router.get("/", async (req, res) => {
 
 })
 
-router.get("/new", async (req, res) => {
-  return res.render("products/new")
-});
+
 
 router.get("/single/:id", async (req, res) => {
 

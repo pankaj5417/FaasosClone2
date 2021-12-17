@@ -3,6 +3,8 @@ const ejs = require("ejs")
 
 const { register, login } = require("./controllers/auth.controller");
 
+const cartController=require("./controllers/cart.controller")
+
 
 
 const productController = require("./controllers/product.controller");
@@ -23,5 +25,7 @@ app.set("view engine", "ejs")
 
 
 app.use("/products", productController);
+
+app.use("/carts", cartController)
 
 module.exports = app;

@@ -1,14 +1,81 @@
 //import { product_type, customize } from "/export.js";
 
-var label = '<%- JSON.stringify(products) %>';
+//var label = '<%- JSON.stringify(products) %>';
   
-console.log(label)
+//console.log(label)
 // add customization html code to the html body 
 
 document.body.innerHTML += customize();
 console.log(customize());
 
- 
+var glob;
+function getData(products) {
+  const data=JSON.parse(products)
+//var glob2=products
+    glob = data;
+    console.log(glob)
+    // console.log(data)
+    showData(data)
+}
+//getData();
+
+
+/*Filter*/
+document.getElementById("nonveg").addEventListener("click",myFunction);
+document.getElementById("veg").addEventListener("click",myFunction);
+var flag=0
+function myFunction(){
+    var arr=[];
+    let nonveg = document.getElementById("nonveg")
+    let veg = document.getElementById("veg")
+    
+    nonveg.onclick=()=>{
+      veg.checked=false
+     // nonveg.checked=true
+    }
+    veg.onclick=()=>{
+     nonveg.checked=false
+     //veg.checked=true
+    }
+
+    
+
+    if(nonveg.checked == true)
+    {
+     // veg.checked=false
+
+        glob.forEach((el)=>{
+            if(el.type == "non-veg")
+            {
+                arr.push(el);
+            }
+        })
+        // console.log(arr);
+        
+        showData(arr);
+    }
+    else if(veg.checked == true)
+    {
+      //nonveg.checked=false
+
+        glob.forEach((el)=>{
+          console.log(el.type)
+            if(el.type == "veg")
+            {
+                arr.push(el);
+            }
+        })
+        // console.log(arr);
+        showData(arr);
+    }
+    
+    else{
+        showData(glob);
+    }
+}
+/*Filter Code END here*/
+
+
 
 var midContainer=document.getElementById('mid-container')
 
@@ -26,8 +93,8 @@ var midContainer=document.getElementById('mid-container')
 
         
 
-  function showData(products){
-      const product=JSON.parse(products)
+  function showData(product){
+      //const product=JSON.parse(products)
       //console.log(products)
 
     midContainer1.innerHTML=null
@@ -818,7 +885,7 @@ cartData();
 
 let checkouts=document.getElementById("checkout")
 checkouts.onclick = () => {
-    window.location.href = "cart2.html";
+    window.location.href = "products/singleProduct";
 }
 //function gotoCart(){
 //}
