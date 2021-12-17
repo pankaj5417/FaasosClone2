@@ -1,5 +1,5 @@
 
-function yellow(){
+function yellow() {
     return `
     <div id="navbar"></div>
     <div id="navbar2" class="sidebar">
@@ -25,6 +25,6 @@ function yellow(){
         <div id="hr4"></div>
     </div>
     `
-    }
+}
 
 export default yellow

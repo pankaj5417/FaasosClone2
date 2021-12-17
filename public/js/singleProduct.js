@@ -34,7 +34,7 @@ function show_prod(prod) {
 
     let current_prod = document.getElementById("prod");
 
-current_prod.innerHTML = prod.name;
+    current_prod.innerHTML = prod.name;
 
     let div1 = document.createElement("div");
     div1.setAttribute("class", "prod-img")
@@ -96,7 +96,7 @@ current_prod.innerHTML = prod.name;
 
 
 // close custom 
-document.getElementById("custom-close").addEventListener("click",()=> {
+document.getElementById("custom-close").addEventListener("click", () => {
     document.querySelector(".custom-parent").classList.remove("active-custom");
 
 });
@@ -104,7 +104,7 @@ document.getElementById("custom-close").addEventListener("click",()=> {
 document.querySelector(".custom-bottom").addEventListener("click", () => {
     document.querySelector(".custom-parent").classList.remove("active-custom");
 
-     let products_cart=JSON.parse(localStorage.getItem("FaasosCart"));
+    let products_cart = JSON.parse(localStorage.getItem("FaasosCart"));
 
     products_cart.push(prod);
     localStorage.setItem("FaasosCart", JSON.stringify(products_cart));
