@@ -66,3 +66,14 @@
     grid-template-columns: 30% 30%;
     grid-gap:20%;
   }
+  @media screen and (max-width: 480px){
+    #big {
+      margin-top: -1.5%;
+      margin-bottom: -1%;
+      width: 180%;
+      /* height: 600px; */
+      background-color: rgb(25, 11, 69);
+      color:white;
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+    }
+  }
