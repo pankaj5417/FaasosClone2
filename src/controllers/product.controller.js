@@ -6,6 +6,8 @@ const upload = require("../middlewares/upload")
 
 const Product = require("../models/product.model");
 
+const Cart = require("../models/cart.model");
+
 //const authenticate = require("../middlewares/authenticate");
 
 const router = express.Router();
@@ -29,7 +31,7 @@ router.get("/single/:id", async (req, res) => {
     console.log(product);
     return res.render("products/singleProduct", {
       product
-    })
+    }); 
 
   } catch (e) {
 
@@ -37,6 +39,12 @@ router.get("/single/:id", async (req, res) => {
 
 
   }
+
+})
+
+router.post("/cart", async (req, res) => {
+  console.log("cart")    
+  res.send("hello");
 
 })
 
