@@ -6,7 +6,7 @@ const upload = require("../middlewares/upload")
 
 const Product = require("../models/product.model");
 
-const Cart = require("../models/cart.model");
+//const Cart = require("../models/cart.model");
 
 //const authenticate = require("../middlewares/authenticate");
 
@@ -15,6 +15,8 @@ const router = express.Router();
 router.get("/", async (req, res) => {
 
   const products = await Product.find().lean().exec()
+
+
   // return res.status(201).send(products)
 
   return res.render("products/productpage", { products })
@@ -46,13 +48,13 @@ router.get("/single/:id", async (req, res) => {
 
 
 
-// router.get("/:id", async (req, res) => {
+ router.get("/:id", async (req, res) => {
 
-//   const products = await Product.findById(req.params.id).lean().exec()
+   const products = await Product.findById(req.params.id).lean().exec()
 
-//   return res.render("products/single", { products })
+  return res.render("products/single", { products })
 
-// })
+})
 
   return res.redirect(`/products/${products._id}`)
 })
