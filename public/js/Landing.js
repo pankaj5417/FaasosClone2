@@ -273,3 +273,11 @@ llink.addEventListener("click",()=>{
   modal.style.display = "block"
 })
 
+function clickedProductName(product) {
+  modal.style.display = "none"
+  modal2.style.display = "block"
+}
+function sink(){
+  alert("suman");
+  console.log("suman")
+}

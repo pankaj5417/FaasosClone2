@@ -21,9 +21,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
 
 app.post("/register",
-    body("phone").isLength({min:12}).withMessage("phone length must be at least 12 characters")
-,register);
-app.post("/login", login);
+    body("phone").isLength({min:10}).withMessage("phone length must be at least 10 characters"), 
+    body('email').isEmail().normalizeEmail(),
+    body("name").isLength({min:3, max:10}).withMessage("name is required and has to be at least 3 characters"),
+   register);
+
+
+app.post("/login", body("phone").isLength({min:10}).withMessage("phone length must be at least 10 characters"),
+
+login);
 
 
 app.use(express.urlencoded({extended: false }))

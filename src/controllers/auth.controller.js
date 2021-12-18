@@ -13,12 +13,12 @@ const register =  async  (req, res) =>{
   try {
     const errors=validationResult(req);
         if(!errors.isEmpty()){
-            let a =errors.array().map(({msg,param,location})=>{
+            let a=errors.array().map(({msg,param,location})=>{
                 return {
                     [param]:msg
                 }
         })
-        
+        return res.status(400).json({errors: a});
     }
     // check if the email address provided already exist
 
@@ -56,6 +56,17 @@ const register =  async  (req, res) =>{
 var error;
 const login = async (req, res) => {
   try {
+
+    const errors=validationResult(req);
+        if(!errors.isEmpty()){
+            let a=errors.array().map(({msg,param,location})=>{
+                return {
+                    [param]:msg
+                }
+        })
+        return res.status(400).json({errors: a});
+    }
+    
     // check if the email address provided already exist
     let user = await User.findOne({ phone: req.body.phone });
 

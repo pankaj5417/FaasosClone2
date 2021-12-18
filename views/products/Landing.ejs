@@ -12,16 +12,7 @@
     <link rel="stylesheet" href="/css/Landing.css" type="text/css">
 </head>
 <body>
- <% if(typeof alert != "undefined"){ %>
-   <% alert.foreEach(function(error){%>
-      <div class="alert alert-warning alert-dismissible fade show" id="alert" role="alert">
-          <%= err.msg %>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <%}) %>
-      <% } %>  
+ 
 
     <div id="loading"></div>
     <div id="myModal" class="modal">
@@ -64,7 +55,7 @@
 <div id = "check"></div>
 
       <button id="btn"  type="submit">Continue</button></br></br></br></br></br></br>
-      <p id="lin1">Don’t have an account? <a id="Sink"clss="sublink">Sign up</a></p>
+      <p id="lin1">Don’t have an account? <a onclick="sink" clss="sublink">Sign up</a></p>
 
   </form>
 
@@ -107,7 +98,7 @@
           </div>
   
           <div id="span-F2">
-            <input id="number" type="number" name="phone" value="" placeholder="Phone Number"pattern="[1-9]{1}[0-9]{9}"  required ></input> 
+            <input id="number2" type="number" name="phone" value="" placeholder="Phone Number"pattern="[1-9]{1}[0-9]{9}"  required ></input> 
       </div>
 
    </div>
@@ -117,7 +108,7 @@
   <input id="email2" type="email" name="email"placeholder="Email Adress"required ></input>
       <button id="btn2" input type="submit" name="submit">Continue</button>
       <p class="color-l"id="tc">By creating an account, I accept the <a href="#">Terms & Conditions</a></p></br></br></br></br></br></br>
-      <p id="lin2">Already have an account? <a  id="Link" clss="sublink">Log in</a></p>
+      <p id="lin2">Already have an account? <a  id="Link" onclick="clickedProductName" class="sublink">Log in</a></p>
   </form>
 </div>
 </div>
@@ -213,7 +204,9 @@
     <div id="big"></div>
 </body>
 </html>
-<script src="js/Landing.js"></script>     
+<!--  -->
+<script src="js/Landing.js">
+</script>     
 <!-- <script type="module">
     import foot from "../footer/footer.js";
     document.getElementById("big").innerHTML = foot;
