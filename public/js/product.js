@@ -123,7 +123,7 @@ var midContainer10 = document.getElementById("mid-container10")
             img.onclick = () => {
                 localStorage.setItem("single-prod", JSON.stringify(prod));
                 
-              window.location.href="single_product.html"
+              window.location.href=`/products/single/${prod._id}`
           }
            img.style.width="100%"
            let prod_name=document.createElement("p")
@@ -279,9 +279,34 @@ var midContainer10 = document.getElementById("mid-container10")
       //hello the
       document.querySelector(".custom-bottom").addEventListener("click", () => {
         document.querySelector(".custom-parent").classList.remove("active-custom");
-        //   console.log("1",prod);
+        let cart_data = JSON.parse(JSON.stringify(prod));
+              console.log(cart_data)
 
-       // addtobag(prod)
+
+  fetch("/cart",{
+        // 61bc12cd8c22250b9b72a285
+    body: JSON.stringify(
+            {
+             userId:`61bc12cd8c22250b9b72a111`,
+            products:cart_data._id
+        }
+        ),
+         method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    }).then((res) => {
+        return res.json();
+    }).then((res) => {
+        console.log(res)
+    }).catch((err) => {
+        console.log(err)
+    })
+        
+        cartData();
+        window.location.reload();
+       
         /* 
          let kart = JSON.parse(localStorage.getItem("FaasosCart"));
            kart.push(prod);
@@ -289,7 +314,6 @@ var midContainer10 = document.getElementById("mid-container10")
  
         */
 
-        // cartData();
       });
 
     };
@@ -308,7 +332,7 @@ var midContainer10 = document.getElementById("mid-container10")
       products_cart.push(p);
 
       localStorage.setItem("FaasosCart", JSON.stringify(products_cart));
-      window.location.reload()
+      // window.location.reload()
       window.scrollTo(0, 0)
       cartData()
       // }
@@ -727,12 +751,34 @@ var midContainer10 = document.getElementById("mid-container10")
 
 //cart page
 
+            //  userId:`61bc12cd8c22250b9b72a111`,
 
-var kart = JSON.parse(localStorage.getItem("FaasosCart"));
+function cartData() {
+  fetch('/cart/61bc12cd8c22250b9b72a111',{
+  method:"GET"
+})
+  .then((response) => {
+  return response.json();
+  })
+    .then(response => {
+      // console.log("respose cart", response[0], "res 0", response[0].products.length)
+      showCart(response[0].products)
+      
+  }).catch((err) => {
+  console.log(err)
+  })
+
+}
+
 
 
 //cart data();
-function cartData() {
+function showCart(kart) {
+  
+
+
+  
+  console.log("kart",kart)
 
 
   var cartItem = document.getElementById("cart-item");
@@ -768,7 +814,7 @@ function cartData() {
   kart.forEach((item) => {
     count++
     qty.innerHTML = count;
-    console.log(item.name)
+
     let div = document.createElement("div")
     let div2 = document.createElement("div")
     let product_name = document.createElement("p")
@@ -806,13 +852,23 @@ function cartData() {
 
     buttonLeft.addEventListener('click', (event) => {
 
-      let kart = JSON.parse(localStorage.getItem("FaasosCart"));
-      let index = kart.indexOf(item);
-      //  console.log(index)
-      kart.splice(index, 1);
-      // kart.removeItem(item)
+      fetch(`/cart/61bc12cd8c22250b9b72a111/${item._id}`, {
+        method:"PATCH"
+      }).then((response) => {
+         cartData();
+     
 
-      localStorage.setItem("FaasosCart", JSON.stringify(kart));
+      }).catch((err) => {
+        console.log(err)
+      })
+
+      // let kart = JSON.parse(localStorage.getItem("FaasosCart"));
+      // let index = kart.indexOf(item);
+      // //  console.log(index)
+      // kart.splice(index, 1);
+      // // kart.removeItem(item)
+
+      // localStorage.setItem("FaasosCart", JSON.stringify(kart));
 
 
       var total = kart.reduce(function (ac, el) {
