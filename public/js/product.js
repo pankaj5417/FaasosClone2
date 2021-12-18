@@ -774,6 +774,7 @@ function cartData() {
 
 //cart data();
 function showCart(kart) {
+
   
 
 
@@ -788,11 +789,14 @@ function showCart(kart) {
     document.getElementById("cart-head").innerText = "Empty cart";
     document.getElementById("qty").style.display = "none";
     document.getElementById("cart-head-2").style.display = "none"
+  
     let cart = document.getElementById("cart-center");
     cart.style.display = "none";
     document.getElementById("empty-cart").style.display = "block"
     return;
   }
+    
+
   document.getElementById("cart-head").innerText = "cart";
   document.getElementById("qty").style.display = "block";
   document.getElementById("cart-head-2").style.display = "block"
@@ -806,10 +810,6 @@ function showCart(kart) {
   cart.innerHTML = null;
 
   var count = 0;
-  // console.log(kart)
-  if (kart === null) {
-    return
-  }
 
   kart.forEach((item) => {
     count++
@@ -889,7 +889,45 @@ function showCart(kart) {
       document.querySelector(".custom-parent").classList.add("active-custom");
       show_customize(item);
 
+       document.querySelector(".custom-bottom").addEventListener("click", () => {
+        document.querySelector(".custom-parent").classList.remove("active-custom");
+        let cart_data = JSON.parse(JSON.stringify(item));
+              console.log(cart_data)
 
+
+  fetch("/cart",{
+        // 61bc12cd8c22250b9b72a285
+    body: JSON.stringify(
+            {
+             userId:`61bc12cd8c22250b9b72a111`,
+            products:cart_data._id
+        }
+        ),
+         method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    }).then((res) => {
+        return res.json();
+    }).then((res) => {
+        console.log(res)
+    }).catch((err) => {
+        console.log(err)
+    })
+        
+        cartData();
+        window.location.reload();
+       
+        /* 
+         let kart = JSON.parse(localStorage.getItem("FaasosCart"));
+           kart.push(prod);
+           localStorage.setItem("FaasosCart", JSON.stringify(kart));
+ 
+        */
+
+      });
+     
 
     });
 
