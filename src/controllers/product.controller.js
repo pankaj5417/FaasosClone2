@@ -40,7 +40,7 @@ router.get("/single/:id", async (req, res) => {
 
 })
 
-
+/*
 
 router.get("/:id", async (req, res) => {
 
@@ -61,7 +61,7 @@ router.post("/single", upload.single("user_image"), async (req, res) => {
 
   return res.redirect(`/products/${products._id}`)
 })
-/*
+
 router.post("/", authenticate, async (req, res) => {
   try {
     const user = req.user;
