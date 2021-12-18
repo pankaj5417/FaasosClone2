@@ -34,6 +34,9 @@ function showData(data){
 let midContainer=document.getElementById('searchContent')
 midContainer.innerHTML=null
 data.forEach((prod)=>{
+
+  //console.log(prod.name);               
+
    // console.log(prod)
  //  if(sitem==prod.name){
   let div=document.createElement("div")
@@ -78,7 +81,8 @@ data.forEach((prod)=>{
          readmore.innerText="Read More"
 
          readmore.onclick=()=>{
-            window.location.href="single_product.html"
+          console.log(prod._id);               
+          window.location.href=`/products/single/${prod._id}`
         }
 
 
