@@ -42,11 +42,9 @@ router.get("/single/:id", async (req, res) => {
 
 })
 
-router.post("/cart", async (req, res) => {
-  console.log("cart")    
-  res.send("hello");
 
-})
+
+
 
 
 

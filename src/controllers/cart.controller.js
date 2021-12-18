@@ -27,4 +27,37 @@ router.post("", async (req, res) => {
   res.status(500).send("Something went wrong");
 }
 });
+
+
+router.get("/:id", async (req, res) => {
+  try {
+    const cart = await Cart.find({ userId: req.params.id }).populate("products");
+    console.log(cart)
+     return res.status(200).json(cart);
+
+    
+  }catch (err) {
+  console.log(err);
+  res.status(500).send("Something went wrong");
+}
+})
+
+router.patch("/:id/:pid", async (req, res) => {
+  try {
+    console.log("hello")
+    const removed = await Cart.updateOne({ userId: req.params.id }, { $pullAll: { products: [req.params.pid] } });
+
+    
+    console.log(removed)
+     return res.status(200).json(cart);
+
+    
+  }catch (err) {
+  console.log(err);
+  res.status(500).send("Something went wrong");
+}
+})
+
+
+
 module.exports=router

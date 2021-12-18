@@ -106,11 +106,11 @@ document.querySelector(".custom-bottom").addEventListener("click", () => {
     document.querySelector(".custom-parent").classList.remove("active-custom");
     console.log(recieved._id)
 
-    fetch("http://localhost:2345/cart",{
+    fetch("/cart",{
         // 61bc12cd8c22250b9b72a285
         body: JSON.stringify(
             {
-             userId:`61bc12cd8c22250b9b72bbbb`,
+             userId:`61bc12cd8c22250b9b72a111`,
             products:recieved._id
         }
         ),
@@ -122,7 +122,7 @@ document.querySelector(".custom-bottom").addEventListener("click", () => {
     }).then((res) => {
         return res.json();
     }).then((res) => {
-        console.log(res)
+        console.log("cartdata",res)
     }).catch((err) => {
         console.log(err)
     })
@@ -132,7 +132,7 @@ document.querySelector(".custom-bottom").addEventListener("click", () => {
 
 
 
-    // window.location.href = "/products/"
+    window.location.href = "/products/"
 
 
     // cartData();
