@@ -11,12 +11,12 @@ const productSchema = new Schema(
     type: { type: String, required: true },
 
     price: { type: Number, required: true },
-    
+
     description: { type: String, required: true },
 
     tags: [{ type: Number, required: true }],
 
-    
+
     img: [{ type: String, required: false }],
 
     reviews: { type: Number, required: true },
