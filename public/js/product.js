@@ -1,7 +1,9 @@
-//import { product_type, customize } from "/export.js";
+
 // https://join.slack.com/t/ft-web-16/shared_invite/zt-104u5me4h-4RtONAGv7_1rWrURambnLg
 
 let user = JSON.parse(localStorage.getItem("user"));
+console.log(user);
+
 
   
 // add customization html code to the html body 

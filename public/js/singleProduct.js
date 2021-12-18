@@ -2,6 +2,10 @@
 document.body.innerHTML += customize();
 console.log(customize());
 //to set non - veg and veg image
+
+let user = JSON.parse(localStorage.getItem("user"));
+console.log("user",user);
+
 function customize() {
     return `   <!-- div for customization -->
             <div class="custom-parent">
@@ -110,7 +114,7 @@ document.querySelector(".custom-bottom").addEventListener("click", () => {
         // 61bc12cd8c22250b9b72a285
         body: JSON.stringify(
             {
-             userId:`61bc12cd8c22250b9b72a111`,
+             userId:`${user.id}`,
             products:recieved._id
         }
         ),

@@ -2,7 +2,7 @@ const express = require("express");
 const ejs = require("ejs");
 const bodyParser = require("body-parser");
 
-const { body, validationResult } = require('express-validator');
+
 
 const userController = require("./controllers/register.controller");
 const { register, login } = require("./controllers/auth.controller");
@@ -14,9 +14,7 @@ const cartController=require("./controllers/cart.controller")
 
 
 const productController = require("./controllers/product.controller");
-const userController = require("./controllers/register.controller");
 
-const { register, login, variable } = require("./controllers/auth.controller");
 
 
 const { body, validationResult } = require('express-validator');
@@ -29,7 +27,7 @@ app.use(express.json());
 
 app.use(express.json());
 
-var bodyParser = require('body-parser');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
 

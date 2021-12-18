@@ -18,8 +18,9 @@ router.get("/", async (req, res) => {
 
 
   // return res.status(201).send(products)
+  let user = "user"
 
-  return res.render("products/productpage", { products })
+  return res.render("products/productpage", { products})
 
 })
 
