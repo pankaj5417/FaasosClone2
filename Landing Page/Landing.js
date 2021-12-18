@@ -176,7 +176,7 @@ input3.addEventListener("keyup",(e)=>{
   }
   if(v3.length==0 || v3.length==10){
     let check = document.getElementById("check2")
-    console.log(check2.innerText)
+    //console.log(check2.innerText)
     check2.innerText=null
   }
   if(v3.length==0){

@@ -72,10 +72,7 @@ const login = async (req, res) => {
 
     // if it does not exist then throw an error
     if (!user)
-       error = res.status(400).json({
-        status: "failed",
-        message: " Please provide correct email address and password",
-      });
+    return res.redirect("/user") 
 
     // else we match the password
 
