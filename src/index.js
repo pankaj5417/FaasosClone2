@@ -6,12 +6,13 @@ let ejs=require("ejs")
 const productController = require("./controllers/product.controller");
 const userController = require("./controllers/register.controller");
 
-const { register, login, error } = require("./controllers/auth.controller");
+const { register, login, variable } = require("./controllers/auth.controller");
+
 
 const { body, validationResult } = require('express-validator');
 
 const app = express();
-console.log(error)
+
 
 
 app.use(express.json());
@@ -28,7 +29,6 @@ app.post("/register",
 
 
 app.post("/login", body("phone").isLength({min:10}).withMessage("phone length must be at least 10 characters"),
-
 login);
 
 
@@ -40,5 +40,9 @@ app.set("view engine","ejs")
 
 app.use("/products", productController);
 app.use("/user", userController);
+app.get("/login", login)
+
+
+
 
 module.exports = app;

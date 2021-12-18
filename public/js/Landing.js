@@ -98,9 +98,7 @@ arr.forEach(el => {
         email2,
         
     };
-    setTimeout(() => {
-      window.location.href = "../productpage/productpage.html"
-    },1000);
+   
     
     let curr = JSON.parse(localStorage.getItem("current"))
     curr.pop();
@@ -237,7 +235,7 @@ arr2.push(user)
 
 modal2.style.display = "none";
 setTimeout(() => {
-  window.location.href= "../productpage/productpage.html"
+
 },1000);
  let curr = JSON.parse(localStorage.getItem("current"))
     curr.pop();
@@ -281,3 +279,11 @@ function sink(){
   alert("suman");
   console.log("suman")
 }
+
+/////////////////////////////////////
+const { register, login, details} = ("./controllers/auth.controller");
+
+let a = document.getElementById("signin_form")
+
+
+

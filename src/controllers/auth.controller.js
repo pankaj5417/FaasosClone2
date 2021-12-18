@@ -2,6 +2,9 @@ require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const User = require("../models/user.model");
 
+
+const details =require("../middlewares/upload")
+
 const { body, validationResult } = require('express-validator');
 
 const newToken = (user) => {
@@ -22,7 +25,7 @@ const register =  async  (req, res) =>{
     }
     // check if the email address provided already exist
 
-    let user = await User.findOne({ email: req.body.email }).lean().exec();
+     user = await User.findOne({ email: req.body.email }).lean().exec();
 
     // if it already exists then throw an error
     if (user)
@@ -43,7 +46,7 @@ const register =  async  (req, res) =>{
 
     // we will create the token
     const token = newToken(user);
-
+    
     
     // return the user and the token
     return res.redirect("/products")
@@ -68,11 +71,17 @@ const login = async (req, res) => {
     }
     
     // check if the email address provided already exist
-    let user = await User.findOne({ phone: req.body.phone });
+     user = await User.findOne({ phone: req.body.phone });
 
     // if it does not exist then throw an error
-    if (!user)
-    return res.redirect("/user") 
+    if (!user){
+      
+       
+
+      
+    }
+    
+    
 
     // else we match the password
 
@@ -81,12 +90,17 @@ const login = async (req, res) => {
 
     // if it matches then create the token
     const token = newToken(user);
-
+  
+   
     // return the user and the token
-    return res.redirect("/products")
+     res.redirect("/products")
+    
 
   } catch (e) {
     return res.status(500).json({ status: "failed", message: e.message });
   }
 };
-module.exports = { register, login, error };
+
+
+
+module.exports = { register, login,details };

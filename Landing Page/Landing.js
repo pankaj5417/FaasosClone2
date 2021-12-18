@@ -99,7 +99,6 @@ arr.forEach(el => {
         
     };
     setTimeout(() => {
-      window.location.href = "../productpage/productpage.html"
     },1000);
     
     let curr = JSON.parse(localStorage.getItem("current"))
@@ -237,7 +236,6 @@ arr2.push(user)
 
 modal2.style.display = "none";
 setTimeout(() => {
-  window.location.href= "../productpage/productpage.html"
 },1000);
  let curr = JSON.parse(localStorage.getItem("current"))
     curr.pop();
@@ -272,4 +270,8 @@ llink.addEventListener("click",()=>{
   modal2.style.display = "none"
   modal.style.display = "block"
 })
+
+////modal change button
+
+
 
