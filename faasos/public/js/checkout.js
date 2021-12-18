@@ -1,19 +1,49 @@
 
-import { product_type, customize } from "./export.js";
+// import { product_type, customize } from "./export.js";
 
-import {nav,sid} from "/navbar.js";
-document.getElementById("navbar").innerHTML = nav;
-document.getElementById("mySidebar").innerHTML = sid;
+// import {nav,sid} from "/navbar.js";
+// document.getElementById("navbar").innerHTML = nav;
+// document.getElementById("mySidebar").innerHTML = sid;
 
-import foot from "../footer/footer.js";
-document.getElementById("big5").innerHTML = foot;
-
-
-//let name = document.getElementById("showName")
-  //      console.log(name+"suman")
+// import foot from "../footer/footer.js";
+// document.getElementById("big5").innerHTML = foot;
 
 
-        // adding customize to the end of the html document
+// let name = document.getElementById("showName")
+//        console.log(name+"suman")
+
+
+//         adding customize to the end of the html document
+
+function customize() {
+  return `   <!-- div for customization -->
+          <div class="custom-parent">
+            <div class="custom">
+              <div class="custom-top">
+                <div id="custom-close"><i class="fas fa-times"></i></div>
+                <div>Customization</div>
+              </div>
+              <div class="custom-middle">
+                     
+              </div>
+              <div class="custom-bottom">
+                <p>Apply</p>
+              </div>
+            </div>
+          </div>
+          <!-- end of customization div -->`;
+}
+function product_type(prod) {
+   if (prod.type === 'veg') {
+            
+      
+       return "https://png.pngitem.com/pimgs/s/151-1515150_veg-icon-png-circle-transparent-png.png";
+        } else {
+       return  "https://www.vhv.rs/dpng/d/437-4370761_non-veg-icon-non-veg-logo-png-transparent.png";
+        }
+}
+
+
 document.body.innerHTML += customize();
 
 var preloader = document.getElementById("loading");
@@ -23,9 +53,13 @@ document.body.onload = () => {
 
 document.getElementById("cod_pay_button").onclick = () =>{
 
-  window.location.href = "../paymentAfterPage/afterpage.html";
+  window.location.href = "payments";
   
 }
+
+
+
+
 
 
 
@@ -87,7 +121,7 @@ function showData(data){
               let presentitems=JSON.parse(localStorage.getItem("FaasosCart"));
               let bagcount=0;
               console.log(presentitems);
-               presentitems.forEach(function (items) {
+               presentitems.forEach(function (items){
                 
                if(items.name==prod.name) {
                  bagcount++;
@@ -139,6 +173,12 @@ var total2;
 var total_pr=document.getElementById("total")
 var total_amt=document.getElementById("total-amt")
 let qty=document.getElementById("qty")
+
+
+
+
+
+
 let kart=JSON.parse(localStorage.getItem("FaasosCart"))
 var count=0;
 console.log(kart)
@@ -146,15 +186,44 @@ console.log(kart)
 
 
 
+// demo start
 
-function cartData() {
+
+// function cartData1() {
+//   fetch('/cart/61bc12cd8c22250b9b72a111',{
+//   method:"GET"
+// })
+//   .then((response) => {
+//   return response.json();
+//   })
+//     .then(response => {
+//       // console.log("respose cart", response[0], "res 0", response[0].products.length)
+//       cartData(response[0].products)
+      
+//   }).catch((err) => {
+//   console.log(err)
+//   })
+
+// }
+
+// cartData1()
+
+
+//demo end
+
+
+
+
+
+ function cartData() {
         let cartItem=document.getElementById("cart-item")
   cartItem.innerHTML = null;
   let kart = JSON.parse(localStorage.getItem("FaasosCart"))
          
 qty.innerHTML=kart.length+" "+"Item";
+
+
     kart.forEach((item)=>{
- 
         console.log(item.name)
         let div=document.createElement("div")
         let div2=document.createElement("div")
@@ -251,7 +320,8 @@ qty.innerHTML=kart.length+" "+"Item";
 
 
 
-        let cartItem=document.getElementById("cart-item")
+
+        let cartItem = document.getElementById("cart-item")
         div.append(div3,div2,product_price)
         product_price.style.width="10%"
         product_price.style.marginLeft="2%"
@@ -283,6 +353,7 @@ qty.innerHTML=kart.length+" "+"Item";
     })
 }
 cartData()
+
 
 
 function viewCoupons(){
@@ -332,6 +403,8 @@ function viewCoupons(){
    button3.innerText="APPLY"
   
   
+
+
    let label=document.createElement("p")
    label.innerText="Enter code"
    label.style.marginLeft="10px"
@@ -453,7 +526,7 @@ function applyCoupon(d){
         total_pr.innerHTML='₹'+parseInt(total13)
         document.getElementById('google_pay_button').innerText = `Pay ₹${parseInt(total13)}`
         document.getElementById('cod_pay_button').innerText = `Pay ₹${parseInt(total13)}`
-
+           
       }
       else{
         var total14=total2-120
@@ -547,6 +620,10 @@ document.getElementById("addAddress").addEventListener("click", function () {
 document.getElementById("closeMap").addEventListener("click", function () {
   document.querySelector(".bg-modal").style.display = "none";
 });
+
+
+
+
 const btn = document.getElementById('save')
 console.log(btn+"btn")
 let input = document.getElementById("landmark")

@@ -5,55 +5,32 @@ const path= require("path")
 
 const Product = require("../models/product.model");
 
+const Checkout = require("../models/checkout.model")
+
 
 const router = express.Router();
 
-// router.get("/", async(req, res)=>{
+router.get("", async(req, res)=>{
 
-//   const products= await Product.find().lean().exec()
-//  // return res.status(201).send(products)
+  const products = await Product.find().lean().exec()
+//   console.log('products:', products)
+//  return res.status(201).send(products)
 
-//   return res.render("products/productpage",{ products })
+  return res.render("products/productpage",{ products })
 
-// })
-
-// router.get("/new", async(req, res)=>{
-//   return res.render("products/new")
-// })
+  // return res.status(200).send(products)
 
 
-
-// router.get("/:id", async(req, res)=>{
-
-//   const products= await Product.findById(req.params.id).lean().exec()
-
-//   return res.render("products/single",{ products })
-
-// })
-
+})
 
 router.post("", async (req, res)=>{
 
-  const products=await Product.create()
-  //return res.render("products/single",{products})
+    const product = await Product.create(req.body)
 
-   return res.redirect(`/products/${products._id}`)
+    return res.status(200).send(product)
+
+    // return res.render("products/productpage",{ products })
 })
-
-
-router.get("", async (req, res) => {
-    const products = await Product.find().lean().exec();
-   
-    
-    return res.render('productpage/productpage.ejs', {
-        products,
-        
-    });
-})
-
-
-
-
 
 
 module.exports = router;

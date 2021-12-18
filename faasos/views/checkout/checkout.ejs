@@ -15,16 +15,14 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="cart2.css">
     <link rel="stylesheet" href="../Nav_bar/navbar.css">
-    <%- include("../header/header.ejs") %>
+   
 <link rel="stylesheet" href="/css/checkout.css">
+<link href="css/navbar.css" rel="stylesheet" type="text/css">
+
 </head>
 
 
 <body>
-
-
-
-
     <div id="loading"></div>
     <div id="navbar"></div>
     <div id="bg-modal" class="bg-modal">
@@ -38,11 +36,12 @@
             </div>
             <p id="address" class="text-xs pl-2 tracking-wider"></p>
             <div class="address_form">
-                <form class="bg-white rounded px-8 pt-6 mb-4">
+              
+                <form  class="bg-white rounded px-8 pt-6 mb-4">
                     <input type="hidden" name="" id="LATITUDE_ELEMENT_ID">
                     <input type="hidden" id="LONGITUDE_ELEMENT_ID" value="">
                     <div class="mb-4">
-                        <input class="
+                        <input type="text" name="house" class="
                   fly-up-content
                   shadow
                   appearance-none
@@ -53,11 +52,11 @@
                   px-3
                   leading-tight
                   focus:outline-none focus:shadow-outline
-                " id="house"/>
+                " id="house" />
                         <span class="fly-up-1 text-gray-400">House/Flat no.</span>
                     </div>
                     <div class="mb-6">
-                        <input class="
+                        <input type="text" name="landmark" class="
                   fly-up-content
                   shadow
                   appearance-none
@@ -70,9 +69,10 @@
                   leading-tight
                   focus:outline-none focus:shadow-outline
                 "  id="landmark"
-                />
+                 />
                         <span class="fly-up-2 text-gray-400">Landmark</span>
                     </div>
+                  
                 </form>
             </div>
             <div class="buttons  w-full m-2   items-center">
@@ -96,12 +96,14 @@
 
                         Others
                     </button>
+
                 </div>
+                <div class="save">
+                  <button class='save_btn' id="save" onclick=" saveAddress()" >SAVE</button>
+              </div>
 
             </div>
-            <div class="save">
-                <button class='save_btn' id="save" onclick="saveAddress()">SAVE</button>
-            </div>
+            
 
         </div>
     </div>
@@ -122,13 +124,18 @@
                     <div id="loggedNumber"></div>
                 </div>
                 </div>
+
+                
+                
                 <div class="cart-address" id="cart-address">
-                    
                     <div class="addAddress">
                         <h2>ADD NEW ADDRESS</h2>
                         <button id="addAddress" class="add-new mt-4">Add New</button>
                     </div>
                 </div>
+
+            
+                
                 <div class="cart-payment">
                     <h1>Payment</h1>
 
@@ -325,14 +332,16 @@
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFqHdww7qwKP8nyQ4MUNFDPAgnfzNbZAU"></script>
     <script src="https://unpkg.com/location-picker/dist/location-picker.min.js"></script>
   
-    <script src="address.js"></script>
-    <script type="module" src="js/checkout.js"></script>
-    <script  src="js/addresses.js"></script>
-    <!-- <%- include("../footer/footer.ejs") %> -->
-    <!-- <%- include("../footer/help_and_support.ejs") %> -->
+  
+    <script src="/js/checkout.js"></script>
+    <script  src="/js/addresses.js"></script>
+
+
 </body>
 </html>
+
 <!-- <script src="/js/checkout.js"></script> -->
+
 
 
 
