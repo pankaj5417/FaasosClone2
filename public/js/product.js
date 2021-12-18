@@ -321,7 +321,6 @@ var midContainer10 = document.getElementById("mid-container10")
     };
 
 
-    var itemsArr = []
     if (localStorage.getItem("FaasosCart") === null) {
       localStorage.setItem("FaasosCart", JSON.stringify([]))
     }
@@ -330,31 +329,9 @@ var midContainer10 = document.getElementById("mid-container10")
 
       let products_cart = await JSON.parse(localStorage.getItem("FaasosCart"));
 
-      /* if(localStorage.getItem("FaasosCart")===null) {
-       itemsArr.push(p)
-      // console.log(itemsArr)
-       localStorage.setItem("FaasosCart",JSON.stringify(itemsArr));
-       window.location.reload()
- 
-       }else{
-         let products_cart= await JSON.parse(localStorage.getItem("FaasosCart"));
-         products_cart.map(data=>{
-           if(data.name==p.name){
- 
-           }
-           else{
-             itemsArr.push(data)
-             console.log(itemsArr)
-             localStorage.setItem("FaasosCart",JSON.stringify(itemsArr));
-                           
-           }
-         })
-         itemsArr.push(p)
-        localStorage.setItem("FaasosCart",JSON.stringify(itemsArr))
- window.location.reload()
- */
+      // let products_cart =   window.location.href=`/products`
+      
       products_cart.push(p);
-      //console.log(productsArray[0])
 
       localStorage.setItem("FaasosCart", JSON.stringify(products_cart));
       // window.location.reload()

@@ -56,39 +56,30 @@ router.get("/single/:id", async (req, res) => {
 
 // })
 
-// router.post("/single", upload.single("user_image"), async (req, res) => {
-
-//   const products = await Product.create({
-//     name: req.body.name,
-//     price: req.body.price,
-//     image_urls: req.file.path,
-//   })
-//   //return res.render("products/single",{products})
-
 //   return res.redirect(`/products/${products._id}`)
 // })
-/*
-router.post("/", authenticate, async (req, res) => {
-  try {
-    const user = req.user;
 
-    const product = await Product.create({
-      name: req.body.name,
-      price: req.body.price,
-      image_urls: ["www.google.com"],
-      user: user.user._id,
-    });
+// router.post("/", authenticate, async (req, res) => {
+//   try {
+//     const user = req.user;
 
-    return res.status(201).json({ product });
-  } catch (e) {
-    return res.status(500).json({ status: "failed", message: e.message });
-  }
-});
+//     const product = await Product.create({
+//       name: req.body.name,
+//       price: req.body.price,
+//       image_urls: ["www.google.com"],
+//       user: user.user._id,
+//     });
 
-router.get("/", async (req, res) => {
-  const products = await Product.find().lean().exec();
+//     return res.status(201).json({ product });
+//   } catch (e) {
+//     return res.status(500).json({ status: "failed", message: e.message });
+//   }
+// });
 
-  return res.send(products);
-});
-*/
+// router.get("/", async (req, res) => {
+//   const products = await Product.find().lean().exec();
+
+//   return res.send(products);
+// });
+// */
 module.exports = router;
