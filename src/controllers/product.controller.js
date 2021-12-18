@@ -30,7 +30,7 @@ router.get("/single/:id", async (req, res) => {
   try {
 
     const product = await Product.findById(req.params.id).lean().exec();
-    console.log(product);
+   
     return res.render("products/singleProduct", {
       product
     }); 

@@ -224,7 +224,8 @@
 </html>
 <script type=module src="/js/single_export.js"></script>
 <script>
-    //var label = '<%- JSON.stringify(products) %>';
+  var user = '<%- JSON.stringify(user) %>';
+  localStorage.setItem('user',user)
    // console.log(label)
   // <span id='variableJSON' hidden>
    // <%= JSON.stringify(products); %>

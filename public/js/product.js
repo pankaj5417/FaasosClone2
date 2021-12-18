@@ -1,6 +1,8 @@
 //import { product_type, customize } from "/export.js";
 // https://join.slack.com/t/ft-web-16/shared_invite/zt-104u5me4h-4RtONAGv7_1rWrURambnLg
 
+let user = JSON.parse(localStorage.getItem("user"));
+
   
 // add customization html code to the html body 
 
@@ -287,7 +289,7 @@ var midContainer10 = document.getElementById("mid-container10")
         // 61bc12cd8c22250b9b72a285
     body: JSON.stringify(
             {
-             userId:`61bc12cd8c22250b9b72a111`,
+             userId:`${user._id}`,
             products:cart_data._id
         }
         ),
@@ -754,7 +756,7 @@ var midContainer10 = document.getElementById("mid-container10")
             //  userId:`61bc12cd8c22250b9b72a111`,
 
 function cartData() {
-  fetch('/cart/61bc12cd8c22250b9b72a111',{
+  fetch(`/cart/${user._id}`,{
   method:"GET"
 })
   .then((response) => {
@@ -852,7 +854,7 @@ function showCart(kart) {
 
     buttonLeft.addEventListener('click', (event) => {
 
-      fetch(`/cart/61bc12cd8c22250b9b72a111/${item._id}`, {
+      fetch(`/cart/${user._id}/${item._id}`, {
         method:"PATCH"
       }).then((response) => {
          cartData();
@@ -899,7 +901,7 @@ function showCart(kart) {
         // 61bc12cd8c22250b9b72a285
     body: JSON.stringify(
             {
-             userId:`61bc12cd8c22250b9b72a111`,
+             userId:`${user._id}`,
             products:cart_data._id
         }
         ),

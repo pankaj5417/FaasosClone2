@@ -32,7 +32,7 @@ router.post("", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const cart = await Cart.find({ userId: req.params.id }).populate("products");
-    console.log(cart)
+   
      return res.status(200).json(cart);
 
     

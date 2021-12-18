@@ -31,9 +31,17 @@ const register =  async  (req, res) =>{
 
 const register = async (req, res) => {
   try {
+    const errors=validationResult(req);
+        if(!errors.isEmpty()){
+            let a=errors.array().map(({msg,param,location})=>{
+                return {
+                    [param]:msg
+                }
+        })
+        return res.status(400).json({errors: a});
+    }
     // check if the email address provided already exist
-    let user = await User.findOne({ email: req.body.email }).lean().exec();
-
+     user = await User.findOne({ email: req.body.email }).lean().exec();
     // if it already exists then throw an error
     if (user)
       return res.status(400).json({
@@ -92,19 +100,27 @@ const login = async (req, res) => {
 
     // we will create the token
     const token = newToken(user);
-
     // return the user and the token
-    res.status(201).json({ user, token });
+    return res.status(201).json({user});
   } catch (e) {
-    return res.status(500).json({ status: "failed", message: e.message });
+    return res.status(500).json({ status: "suman", message: e.message });
   }
 };
-
+var error;
 const login = async (req, res) => {
   try {
+    const errors=validationResult(req);
+        if(!errors.isEmpty()){
+            let a=errors.array().map(({msg,param,location})=>{
+                return {
+                    [param]:msg
+                }
+        })
+        return res.status(400).json({errors: a});
+    }
     // check if the email address provided already exist
-    let user = await User.findOne({ phone: req.body.phone });
-
+     user = await User.findOne({ phone: req.body.phone });
+     data.push(user)
     // if it does not exist then throw an error
     if (!user)
       return res.status(400).json({
@@ -123,11 +139,11 @@ const login = async (req, res) => {
      res.redirect("/products")
     
 
-=======
-
-
     // if it matches then create the token
     const token = newToken(user);
+    const products = await Product.find();
+    console.log("user",user)
+  return res.render("products/productpage.ejs",{products,user})
 
     // return the user and the token
     res.status(201).json({ user, token });
