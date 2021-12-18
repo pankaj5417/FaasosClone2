@@ -24,7 +24,7 @@ router.get("/", async (req, res) => {
 router.get("/single/:id", async (req, res) => {
 
   try {
-    console.log("hello")
+
     const product = await Product.findById(req.params.id).lean().exec();
     console.log(product);
     return res.render("products/singleProduct", {
@@ -42,25 +42,25 @@ router.get("/single/:id", async (req, res) => {
 
 
 
-router.get("/:id", async (req, res) => {
+// router.get("/:id", async (req, res) => {
 
-  const products = await Product.findById(req.params.id).lean().exec()
+//   const products = await Product.findById(req.params.id).lean().exec()
 
-  return res.render("products/single", { products })
+//   return res.render("products/single", { products })
 
-})
+// })
 
-router.post("/single", upload.single("user_image"), async (req, res) => {
+// router.post("/single", upload.single("user_image"), async (req, res) => {
 
-  const products = await Product.create({
-    name: req.body.name,
-    price: req.body.price,
-    image_urls: req.file.path,
-  })
-  //return res.render("products/single",{products})
+//   const products = await Product.create({
+//     name: req.body.name,
+//     price: req.body.price,
+//     image_urls: req.file.path,
+//   })
+//   //return res.render("products/single",{products})
 
-  return res.redirect(`/products/${products._id}`)
-})
+//   return res.redirect(`/products/${products._id}`)
+// })
 /*
 router.post("/", authenticate, async (req, res) => {
   try {
