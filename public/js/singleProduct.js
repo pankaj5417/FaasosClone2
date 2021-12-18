@@ -20,7 +20,7 @@ function customize() {
             </div>
             <!-- end of customization div -->`;
 }
-
+var recieved = null
 
 function show_prod(prod) {
     let parent = document.querySelector(".single-product");
@@ -30,6 +30,7 @@ function show_prod(prod) {
 
     prod = JSON.parse(prod);
     console.log(prod)
+    recieved = prod;
     console.log(prod.category)
 
     let current_prod = document.getElementById("prod");
@@ -103,12 +104,35 @@ document.getElementById("custom-close").addEventListener("click", () => {
 //
 document.querySelector(".custom-bottom").addEventListener("click", () => {
     document.querySelector(".custom-parent").classList.remove("active-custom");
+    console.log(recieved._id)
 
-    let products_cart = JSON.parse(localStorage.getItem("FaasosCart"));
+    fetch("http://localhost:2345/cart",{
+        // 61bc12cd8c22250b9b72a285
+        body: JSON.stringify(
+            {
+             userId:`61bc12cd8c22250b9b72bbbb`,
+            products:recieved._id
+        }
+        ),
+         method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    }).then((res) => {
+        return res.json();
+    }).then((res) => {
+        console.log(res)
+    }).catch((err) => {
+        console.log(err)
+    })
 
-    products_cart.push(prod);
-    localStorage.setItem("FaasosCart", JSON.stringify(products_cart));
-    window.location.href = "./productpage.html"
+
+
+
+
+
+    // window.location.href = "/products/"
 
 
     // cartData();

@@ -1,4 +1,5 @@
 //import { product_type, customize } from "/export.js";
+// https://join.slack.com/t/ft-web-16/shared_invite/zt-104u5me4h-4RtONAGv7_1rWrURambnLg
 
 //var label = '<%- JSON.stringify(products) %>';
   

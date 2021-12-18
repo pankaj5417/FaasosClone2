@@ -6,6 +6,8 @@ const upload = require("../middlewares/upload")
 
 const Product = require("../models/product.model");
 
+const Cart = require("../models/cart.model");
+
 //const authenticate = require("../middlewares/authenticate");
 
 const router = express.Router();
@@ -24,12 +26,12 @@ router.get("/", async (req, res) => {
 router.get("/single/:id", async (req, res) => {
 
   try {
-    console.log("hello")
+
     const product = await Product.findById(req.params.id).lean().exec();
     console.log(product);
     return res.render("products/singleProduct", {
       product
-    })
+    }); 
 
   } catch (e) {
 
@@ -42,22 +44,15 @@ router.get("/single/:id", async (req, res) => {
 
 /*
 
-router.get("/:id", async (req, res) => {
 
-  const products = await Product.findById(req.params.id).lean().exec()
 
-  return res.render("products/single", { products })
+// router.get("/:id", async (req, res) => {
 
-})
+//   const products = await Product.findById(req.params.id).lean().exec()
 
-router.post("/single", upload.single("user_image"), async (req, res) => {
+//   return res.render("products/single", { products })
 
-  const products = await Product.create({
-    name: req.body.name,
-    price: req.body.price,
-    image_urls: req.file.path,
-  })
-  //return res.render("products/single",{products})
+// })
 
   return res.redirect(`/products/${products._id}`)
 })
