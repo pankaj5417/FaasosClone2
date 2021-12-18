@@ -98,8 +98,7 @@ arr.forEach(el => {
         email2,
         
     };
-    setTimeout(() => {
-    },1000);
+   
     
     let curr = JSON.parse(localStorage.getItem("current"))
     curr.pop();
@@ -175,7 +174,7 @@ input3.addEventListener("keyup",(e)=>{
   }
   if(v3.length==0 || v3.length==10){
     let check = document.getElementById("check2")
-    //console.log(check2.innerText)
+    console.log(check2.innerText)
     check2.innerText=null
   }
   if(v3.length==0){
@@ -236,6 +235,7 @@ arr2.push(user)
 
 modal2.style.display = "none";
 setTimeout(() => {
+
 },1000);
  let curr = JSON.parse(localStorage.getItem("current"))
     curr.pop();
@@ -271,7 +271,19 @@ llink.addEventListener("click",()=>{
   modal.style.display = "block"
 })
 
-////modal change button
+function clickedProductName(product) {
+  modal.style.display = "none"
+  modal2.style.display = "block"
+}
+function sink(){
+  alert("suman");
+  console.log("suman")
+}
+
+/////////////////////////////////////
+const { register, login, details} = ("./controllers/auth.controller");
+
+let a = document.getElementById("signin_form")
 
 
 
