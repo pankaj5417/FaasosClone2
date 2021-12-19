@@ -14,6 +14,8 @@ router.post("", async (req, res) => {
   try {
     console.log("hello")
     const user = await Cart.findOne({ userId: req.body.userId }).lean().exec();
+    
+    console.log("cart-controller",req.body.userId)
     console.log("found", user);
     if (user) {
       let addedtocart = await Cart.updateOne({ userId: user.userId }, { $push: { products: req.body.products } }).lean().exec();

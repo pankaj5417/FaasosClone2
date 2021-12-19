@@ -68,15 +68,13 @@ document.getElementById("cod_pay_button").onclick = () =>{
 
 
 
-
-
-async function getData(){
-    let res=await fetch(`https://618abbc034b4f400177c4860.mockapi.io/api`)
-    let data=await res.json()
-    // console.log(data)
-    showData(data)
-} 
-getData()
+// async function getData(){
+//     let res=await fetch(`https://618abbc034b4f400177c4860.mockapi.io/api`)
+//     let data=await res.json()
+//     // console.log(data)
+//     showData(data)
+// } 
+// getData()
 
 
 var viewCouponsFun=document.getElementById("view-coupons")
@@ -85,7 +83,8 @@ viewCouponsFun.onclick=()=>{
 }
 
 function showData(data){
-    var midContainer=document.getElementById('mid-container')
+  var midContainer = document.getElementById('mid-container')
+  console.log(data)
       data.forEach((prod)=>{
          // console.log(prod)
         var div=document.createElement("div")
@@ -196,8 +195,9 @@ let qty=document.getElementById("qty")
 // demo start
 
 
+
 function cartData() {
-  fetch(`/cart/61beb9d9f5798e71768cd313`,{
+  fetch(`/cart/${user._id}`,{
   method:"GET"
 })
   .then((response) => {
@@ -212,6 +212,8 @@ function cartData() {
   })
 
 }
+
+cartData();
 
 
 //demo end

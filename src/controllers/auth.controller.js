@@ -56,7 +56,8 @@ const login = async (req, res) => {
         return res.status(400).json({errors: a});
     }
     // check if the email address provided already exist
-     user = await User.findOne({ phone: req.body.phone });
+    user = await User.findOne({ phone: req.body.phone });
+  
      data.push(user)
     // if it does not exist then throw an error
     if (!user){

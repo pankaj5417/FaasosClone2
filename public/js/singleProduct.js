@@ -111,7 +111,6 @@ document.querySelector(".custom-bottom").addEventListener("click", () => {
     // console.log(recieved._id,user.id);
 
     fetch("/cart",{
-        // 61bc12cd8c22250b9b72a285
         body: JSON.stringify(
             {
              userId:`${user._id}`,
@@ -130,6 +129,8 @@ document.querySelector(".custom-bottom").addEventListener("click", () => {
     }).catch((err) => {
         console.log(err)
     })
+
+    
 
 
 

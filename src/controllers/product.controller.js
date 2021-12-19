@@ -50,8 +50,9 @@ router.get("/single/:id", async (req, res) => {
 router.get("/product/:uid", async (req, res) => {
   const products = await Product.find().lean().exec();
 
-  const user = await User.findOne({ userId: req.params.uid }).lean().exec();
-  console.log("user",user)
+  console.log("product controller",req.params.uid)
+  const user = await User.findOne({_id:req.params.uid }).lean().exec();
+  console.log("user", user);
 
 
   return res.render("products/productpage", { products, user });
