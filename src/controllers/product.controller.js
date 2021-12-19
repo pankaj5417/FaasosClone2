@@ -62,8 +62,6 @@ router.get("/product/:uid", async (req, res) => {
 
 
 
-
-
 router.get("/:id", async (req, res) => {
 
   const products = await Product.findById(req.params.id).lean().exec()

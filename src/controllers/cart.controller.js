@@ -30,6 +30,28 @@ router.post("", async (req, res) => {
 });
 
 
+router.post("/empty/:uid", async (req, res) => {
+  try {
+
+    console.log("cart controller")
+    console.log(req.params.uid )
+    
+    await Cart.update({ userId:req.params.uid}, { $set: { products: [] }}, function(err, affected){
+    console.log('affected: ', affected);
+});
+    
+    
+      
+      return res.json("deleted products");
+    
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Something went wrong");
+  }
+});
+
+
+
 
 
 

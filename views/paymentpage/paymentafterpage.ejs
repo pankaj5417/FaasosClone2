@@ -98,9 +98,17 @@
 </body>
 </html>
 <script>
+
+
+
+
     document.getElementById("bt").onclick = () => {
-        window.location.href = "products";
-        localStorage.setItem("FaasosCart",JSON.stringify([]))
+        let user = JSON.parse(localStorage.getItem("user"));
+      
+fetch(`/cart/empty/${user._id}`,{
+    method:"POST"
+})
+window.location.href = `/products/product/${user._id}`
 
     }
     setTimeout(()=>{
