@@ -62,28 +62,16 @@ document.getElementById("logoImg").onclick = () => {
 
 /*Filter*/
 document.getElementById("nonveg").addEventListener("click",myFunction);
-document.getElementById("veg").addEventListener("click",myFunction);
+document.getElementById("veg").addEventListener("click",myFunction2);
+let nonveg = document.getElementById("nonveg");
+let veg = document.getElementById("veg");
 var flag=0
 function myFunction(){
     var arr=[];
-    let nonveg = document.getElementById("nonveg")
-    let veg = document.getElementById("veg")
+    veg.checked=false;
     
-    nonveg.onclick=()=>{
-      veg.checked=false
-     // nonveg.checked=true
-    }
-    veg.onclick=()=>{
-     nonveg.checked=false
-     //veg.checked=true
-    }
-
-    
-
     if(nonveg.checked == true)
     {
-     // veg.checked=false
-
         glob.forEach((el)=>{
             if(el.type == "non-veg")
             {
@@ -94,23 +82,29 @@ function myFunction(){
         
         showData(arr);
     }
-    else if(veg.checked == true)
-    {
-      //nonveg.checked=false
-
-        glob.forEach((el)=>{
-            if(el.type == "veg")
-            {
-                arr.push(el);
-            }
-        })
-        // console.log(arr);
-        showData(arr);
-    }
-    
     else{
         showData(glob);
     }
+}
+function myFunction2(){
+  var arr=[];
+  nonveg.checked=false;
+  
+  if(veg.checked == true)
+  {
+      glob.forEach((el)=>{
+          if(el.type == "veg")
+          {
+              arr.push(el);
+          }
+      })
+      // console.log(arr);
+      
+      showData(arr);
+  }
+  else{
+      showData(glob);
+  }
 }
 /*Filter Code END here*/
 var midContainer=document.getElementById('mid-container')
