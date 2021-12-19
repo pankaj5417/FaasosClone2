@@ -303,7 +303,7 @@ var midContainer10 = document.getElementById("mid-container10")
     }).then((res) => {
         return res.json();
     }).then((res) => {
-        console.log(res)
+        console.log("res",res)
     }).catch((err) => {
         console.log(err)
     })
@@ -852,7 +852,6 @@ function showCart(kart) {
     document.getElementById("cart-head").innerText = "Empty cart";
     document.getElementById("qty").style.display = "none";
     document.getElementById("cart-head-2").style.display = "none"
-  
     let cart = document.getElementById("cart-center");
     cart.style.display = "none";
     document.getElementById("empty-cart").style.display = "block"

@@ -108,13 +108,13 @@ document.getElementById("custom-close").addEventListener("click", () => {
 //
 document.querySelector(".custom-bottom").addEventListener("click", () => {
     document.querySelector(".custom-parent").classList.remove("active-custom");
-    console.log(recieved._id)
+    // console.log(recieved._id,user.id);
 
     fetch("/cart",{
         // 61bc12cd8c22250b9b72a285
         body: JSON.stringify(
             {
-             userId:`${user.id}`,
+             userId:`${user._id}`,
             products:recieved._id
         }
         ),
@@ -136,7 +136,7 @@ document.querySelector(".custom-bottom").addEventListener("click", () => {
 
 
 
-    window.location.href = `/products/product/${user._id}`;
+     window.location.href = `/products/product/${user._id}`;
 
 
     // cartData();

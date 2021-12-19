@@ -12,6 +12,7 @@ router.post("", async (req, res) => {
 
 
   try {
+    console.log("hello")
     const user = await Cart.findOne({ userId: req.body.userId }).lean().exec();
     console.log("found", user);
     if (user) {

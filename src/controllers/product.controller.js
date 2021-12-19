@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
 
 
   // return res.status(201).send(products)
-  let user = "user"
+  
 
   return res.render("products/productpage", { products })
 
@@ -50,7 +50,8 @@ router.get("/single/:id", async (req, res) => {
 router.get("/product/:uid", async (req, res) => {
   const products = await Product.find().lean().exec();
 
-  const user = await User.find({userId:req.params.uid})
+  const user = await User.findOne({ userId: req.params.uid }).lean().exec();
+  console.log("user",user)
 
 
   return res.render("products/productpage", { products,user})
