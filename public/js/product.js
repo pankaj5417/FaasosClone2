@@ -211,7 +211,7 @@ var midContainer10 = document.getElementById("mid-container10")
           // addToCart.style.width="40%"
             addToCart.className = "addtoCartBtn"
             
-            
+        /*    
         
          addToCart.onclick=function() {
                  console.log("Yes")
@@ -234,7 +234,7 @@ var midContainer10 = document.getElementById("mid-container10")
              }   	
                 }
         
-
+*/
     addToCart.addEventListener("click", addtocart);
     function addtocart(event) {
       let ans = document.getElementsByClassName("addtoCartBtn");
@@ -322,7 +322,7 @@ var midContainer10 = document.getElementById("mid-container10")
 
     };
 
-
+/*
     if (localStorage.getItem("FaasosCart") === null) {
       localStorage.setItem("FaasosCart", JSON.stringify([]))
     }
@@ -343,7 +343,7 @@ var midContainer10 = document.getElementById("mid-container10")
     }
 
 
-
+*/
 
     let div_rating_reviews = document.createElement('div');
     div_rating_reviews.append(prod_rating_div, reviews);
@@ -389,10 +389,8 @@ var midContainer10 = document.getElementById("mid-container10")
        let elmnt = document.getElementById("mid-container1");
        elmnt.scrollIntoView();
       //P1.style.color="black"
-      if(flag){
-        P1.style.fontWeight="bold"
-        flag=0
-      }
+     
+       
       
   
       window.scrollTo(0, 200);
@@ -402,27 +400,20 @@ var midContainer10 = document.getElementById("mid-container10")
     P2.addEventListener("click", myFunction2)
     
     function myFunction2() {
-     var flag2=1
+     
       let elmnt1 = document.getElementById("mid-container2");
     
       elmnt1.scrollIntoView();
 
-   if(P2.top==elmnt1.top){
-     P2.style.fontWeight="bold"
-     P1.style.fontWeight="normal"
-     flag2=0
-   }
+   //if(P2.top==elmnt1.top){
+    
+    
+   //}
     
 
       //window.scrollTo(0, 1570);
-    }
-    document.body.onscroll =()=>{
-    if(P2.offsetTop==elmnt1.offsetTop){
-      P2.style.fontWeight="bold"
-      P1.style.fontWeight="normal"
-     
-    }
-     
+    
+    
   }
     
 
@@ -496,126 +487,194 @@ var midContainer10 = document.getElementById("mid-container10")
        }
        */
 
-/*
-    document.body.onscroll = function () { myFunction() };
 
+    document.body.onscroll = function () { myFunction() };
+var top=-100
     function myFunction() {
-      if (document.documentElement.scrollTop < 300) {
+      console.log("midcontainer", midContainer2.offsetTop)
+      
+       if (document.documentElement.scrollTop < midContainer2.offsetTop && document.documentElement.scrollTop >= top+ midContainer1.offsetTop) {
         //let P1=document.getElementById("p1")
 
         P1.style.fontWeight = "bold"
-
-      } else {
-        P1.style.fontWeight = "normal"
+        P2.style.fontWeight = "normal"
+        P3.style.fontWeight = "normal"
+        P4.style.fontWeight = "normal"
+        P5.style.fontWeight = "normal"
+        P6.style.fontWeight = "normal"
+        P7.style.fontWeight = "normal"
+        P8.style.fontWeight = "normal"
+        P9.style.fontWeight = "normal"
+        P10.style.fontWeight = "normal"
 
       }
 
-      if (document.documentElement.scrollTop < 500) {
+      else if (document.documentElement.scrollTop < midContainer3.offsetTop && document.documentElement.scrollTop >= top+midContainer2.offsetTop) {
         //let P1=document.getElementById("p1")
 
         P2.style.fontWeight = "bold"
+        P1.style.fontWeight = "normal"
+        P3.style.fontWeight = "normal"
+        P4.style.fontWeight = "normal"
+        P5.style.fontWeight = "normal"
+        P6.style.fontWeight = "normal"
+        P7.style.fontWeight = "normal"
+        P8.style.fontWeight = "normal"
+        P9.style.fontWeight = "normal"
+        P10.style.fontWeight = "normal"
 
-      } else {
-        P2.style.fontWeight = "normal"
+
+     
+
 
       }
 
-      if (document.documentElement.scrollTop < 1000) {
+      else if (document.documentElement.scrollTop < midContainer4.offsetTop && document.documentElement.scrollTop >= top+midContainer3.offsetTop) {
         //let P1=document.getElementById("p1")
 
         P3.style.fontWeight = "bold"
+        P2.style.fontWeight = "normal"
+        P1.style.fontWeight = "normal"
+        P4.style.fontWeight = "normal"
+        P5.style.fontWeight = "normal"
+        P6.style.fontWeight = "normal"
+        P7.style.fontWeight = "normal"
+        P8.style.fontWeight = "normal"
+        P9.style.fontWeight = "normal"
+        P10.style.fontWeight = "normal"
 
-      } else {
-        P3.style.fontWeight = "normal"
+     
 
       }
-      if (document.documentElement.scrollTop < 1800) {
+      else if (document.documentElement.scrollTop < midContainer5.offsetTop && document.documentElement.scrollTop >=midContainer4.offsetTop) {
         //let P1=document.getElementById("p1")
 
         P4.style.fontWeight = "bold"
+        P2.style.fontWeight = "normal"
+        P3.style.fontWeight = "normal"
+        P1.style.fontWeight = "normal"
+        P5.style.fontWeight = "normal"
+        P6.style.fontWeight = "normal"
+        P7.style.fontWeight = "normal"
+        P8.style.fontWeight = "normal"
+        P9.style.fontWeight = "normal"
+        P10.style.fontWeight = "normal"
+
+      
+
+     
 
       }
 
-      else {
-        P4.style.fontWeight = "normal"
-
-
-      }
-
-      if (document.documentElement.scrollTop < 1800) {
+      else if (document.documentElement.scrollTop < midContainer6.offsetTop && document.documentElement.scrollTop >midContainer5.offsetTop) {
         //let P1=document.getElementById("p1")
 
         P5.style.fontWeight = "bold"
+        P2.style.fontWeight = "normal"
+        P3.style.fontWeight = "normal"
+        P4.style.fontWeight = "normal"
+        P1.style.fontWeight = "normal"
+        P6.style.fontWeight = "normal"
+        P7.style.fontWeight = "normal"
+        P8.style.fontWeight = "normal"
+        P9.style.fontWeight = "normal"
+        P10.style.fontWeight = "normal"
+
+      
+
+     
+
 
       }
-
-      else {
-        P5.style.fontWeight = "normal"
-
-
-      }
-      if (document.documentElement.scrollTop < 1800) {
+      else if (document.documentElement.scrollTop < midContainer7.offsetTop && document.documentElement.scrollTop >= top+midContainer6.offsetTop) {
         //let P1=document.getElementById("p1")
 
         P6.style.fontWeight = "bold"
 
+        P2.style.fontWeight = "normal"
+        P3.style.fontWeight = "normal"
+        P4.style.fontWeight = "normal"
+        P5.style.fontWeight = "normal"
+        P1.style.fontWeight = "normal"
+        P7.style.fontWeight = "normal"
+        P8.style.fontWeight = "normal"
+        P9.style.fontWeight = "normal"
+        P10.style.fontWeight = "normal"
+
+
+
       }
-
-      else {
-        P6.style.fontWeight = "normal"
-
-
-      }
-      if (document.documentElement.scrollTop < 1800) {
+      else if (document.documentElement.scrollTop < midContainer8.offsetTop && document.documentElement.scrollTop >= top+midContainer7.offsetTop) {
         //let P1=document.getElementById("p1")
 
         P7.style.fontWeight = "bold"
+        P2.style.fontWeight = "normal"
+        P3.style.fontWeight = "normal"
+        P4.style.fontWeight = "normal"
+        P5.style.fontWeight = "normal"
+        P6.style.fontWeight = "normal"
+        P1.style.fontWeight = "normal"
+        P8.style.fontWeight = "normal"
+        P9.style.fontWeight = "normal"
+        P10.style.fontWeight = "normal"
+
+     
+
 
       }
-
-      else {
-        P7.style.fontWeight = "normal"
-
-
-      }
-      if (document.documentElement.scrollTop < 1800) {
+      else if (document.documentElement.scrollTop < midContainer9.offsetTop && document.documentElement.scrollTop >= midContainer8.offsetTop) {
         //let P1=document.getElementById("p1")
 
         P8.style.fontWeight = "bold"
+        P2.style.fontWeight = "normal"
+        P3.style.fontWeight = "normal"
+        P4.style.fontWeight = "normal"
+        P5.style.fontWeight = "normal"
+        P6.style.fontWeight = "normal"
+        P7.style.fontWeight = "normal"
+        P1.style.fontWeight = "normal"
+        P9.style.fontWeight = "normal"
+        P10.style.fontWeight = "normal"
+
+     
 
       }
-
-      else {
-        P8.style.fontWeight = "normal"
-
-
-      }
-      if (document.documentElement.scrollTop < 1800) {
+      else if (document.documentElement.scrollTop < midContainer10.offsetTop && document.documentElement.scrollTop >= midContainer9.offsetTop) {
         //let P1=document.getElementById("p1")
 
         P9.style.fontWeight = "bold"
-
-      }
-
-      else {
-        P9.style.fontWeight = "normal"
-
-
-      }
-      if (document.documentElement.scrollTop < 1800) {
-        //let P1=document.getElementById("p1")
-
-        P10.style.fontWeight = "bold"
-
-      }
-
-      else {
+        P8.style.fontWeight = "bold"
+        P2.style.fontWeight = "normal"
+        P3.style.fontWeight = "normal"
+        P4.style.fontWeight = "normal"
+        P5.style.fontWeight = "normal"
+        P6.style.fontWeight = "normal"
+        P7.style.fontWeight = "normal"
+        P1.style.fontWeight = "normal"
         P10.style.fontWeight = "normal"
 
 
       }
+      else if ( document.documentElement.scrollTop >= midContainer10.offsetTop) {
+        //let P1=document.getElementById("p1")
+
+        P8.style.fontWeight = "normal"
+        P2.style.fontWeight = "normal"
+        P3.style.fontWeight = "normal"
+        P4.style.fontWeight = "normal"
+        P5.style.fontWeight = "normal"
+        P6.style.fontWeight = "normal"
+        P7.style.fontWeight = "normal"
+        P1.style.fontWeight = "normal"
+        P9.style.fontWeight = "normal"
+        P10.style.fontWeight = "bold"
+
+     
+
+      }
+      
     }
-*/
+
 
 
     if (prod.category == "Fab Wraps starting at 99 each") {
@@ -989,9 +1048,9 @@ function showCart(kart) {
 }
 cartData();
 
-let checkouts = document.getElementById("checkout")
+let checkouts = document.getElementById("checkout-button")
 checkouts.onclick = () => {
-    window.location.href = "products/singleProduct";
+    window.location.href = "user";
 }
 //function gotoCart(){
 //}
