@@ -20,7 +20,7 @@ const register =  async  (req, res) =>{
         return res.status(400).json({errors: a});
     }
     // check if the email address provided already exist
-     user = await User.findOne({ email: req.body.email }).lean().exec();
+   const  user = await User.findOne({ email: req.body.email }).lean().exec();
     // if it already exists then throw an error
     if (user)
       error =  res.status(400).json({
@@ -56,7 +56,7 @@ const login = async (req, res) => {
         return res.status(400).json({errors: a});
     }
     // check if the email address provided already exist
-    user = await User.findOne({ phone: req.body.phone });
+    const user = await User.findOne({ phone: req.body.phone });
   
      data.push(user)
     // if it does not exist then throw an error
