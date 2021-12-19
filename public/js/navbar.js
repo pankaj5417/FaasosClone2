@@ -1,10 +1,12 @@
+let user = JSON.parse(localStorage.getItem("user"));
+
 const nav = `<div id="navLeft">
 <img id="logoImg" width="32%" src="https://assets.faasos.io/faasos_v2/faasosLogoPurple.svg" alt=""/>
 </div>
 <div id="navRight">
 <div>
   <span class="material-icons">person</span>
-  <div id="showName">Login</div>
+  <div id="showName">${user.name}</div>
 </div>
 <span id="ham" class="material-icons">menu</span>
 </div>`;

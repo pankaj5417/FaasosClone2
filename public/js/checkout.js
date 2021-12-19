@@ -336,16 +336,18 @@ qty.innerHTML=kart.length+" "+"Item";
            
             total_amt.innerHTML='₹'+total
             total_amt.style.marginLeft="0"
-
+            
             var tax=0;
             tax=total*0.05
             var gsttax=document.getElementById("gsttax").innerText='₹'+" "+parseInt(tax)
-             total2=total+tax
-           // total3=total2
+            total2=total+tax
+            // total3=total2
             //total4=total2
             total_pr.innerHTML='₹'+parseInt(total2)
             total_pr.style.fontWeight="700"
-
+            
+            document.getElementById('google_pay_button').innerText = `Pay ₹${Math.floor(total2)}`
+document.getElementById('cod_pay_button').innerText = `Pay ₹${Math.floor(total2)}`
             
            
     })
@@ -738,5 +740,5 @@ function changeNumber(){
 }
 
 
-document.getElementById('google_pay_button').innerText = `Pay ₹${parseInt(total2)}`
-document.getElementById('cod_pay_button').innerText = `Pay ₹${parseInt(total2)}`
+document.getElementById('google_pay_button').innerText = `Pay ₹${total_amt}`
+document.getElementById('cod_pay_button').innerText = `Pay ₹${total_amt}`
