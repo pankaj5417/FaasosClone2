@@ -11,7 +11,7 @@ router.get("/new", async (req, res) => {
 
 router.get("/", async (req, res) => {
         
-  return res.render("products/landing",{message:"false"})
+  return res.render("products/landing",{message:false})
 })
 
 

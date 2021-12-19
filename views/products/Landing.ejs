@@ -219,9 +219,10 @@
 </html>
 <script>
     let ans = JSON.parse('<%- JSON.stringify(message) %> ');
-    console.log(ans)
-    if(ans!=="false"){
- alert('<%- JSON.stringify(message) %>')
+//    console.log("ans",ans,ans == false,ans == "false")
+ //alert(ans)
+    if(ans!==false){
+ alert(ans)
     }
    
 </script>

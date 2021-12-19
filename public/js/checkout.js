@@ -434,7 +434,18 @@ function viewCoupons(){
  
    button3.onclick=()=>{
        console.log(couponBox.value)
-    applyCoupon(couponBox.value)
+     applyCoupon(couponBox.value)
+     
+     if(couponBox.value==='WRAPPED'){
+      alert("YOUR COUPON IS APPLIED")
+    }
+    else if(couponBox.value==='BIGSAVE' && total2>=800){
+      alert("YOUR COUPON IS APPLIED")
+    }
+    else{
+      alert("WRONG COUPAN ! ")
+    }
+
 }
 
    div9.append(hr1,div7,hr2)

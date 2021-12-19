@@ -8,6 +8,8 @@ const { body, validationResult } = require('express-validator');
 const newToken = (user) => {
   return jwt.sign({ user: user }, process.env.JWT_ACCESS_KEY);
 };
+
+
 const register =  async  (req, res) =>{
   try {
     const errors=validationResult(req);
@@ -18,10 +20,10 @@ const register =  async  (req, res) =>{
                 }
         })
         return res.render('products/Landing.ejs'
-,{status:false,message: a});
+,{message: "invalid Information"});
     }
     // check if the email address provided already exist
-   const  user = await User.findOne({ email: req.body.email }).lean().exec();
+    user = await User.findOne({ email: req.body.email }).lean().exec();
     // if it already exists then throw an error
     if (user)
       error =  res.render('products/Landing.ejs'
