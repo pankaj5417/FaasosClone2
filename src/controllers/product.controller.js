@@ -54,7 +54,7 @@ router.get("/product/:uid", async (req, res) => {
   console.log("user",user)
 
 
-  return res.render("products/productpage", { products,user})
+  return res.render("products/productpage", { products, user });
 });
 
 
