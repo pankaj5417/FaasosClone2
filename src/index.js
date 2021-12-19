@@ -2,6 +2,8 @@ const express = require("express");
 const ejs = require("ejs");
 const bodyParser = require("body-parser");
 
+const checkoutController = require("./controllers/checkout.controller");
+const paymentController = require("./controllers/paymentpage.controller")
 
 
 const userController = require("./controllers/register.controller");
@@ -41,7 +43,9 @@ app.post("/register",
 app.post("/login", body("phone").isLength({ min: 10 }).withMessage("phone length must be at least 10 characters"),
     login);
 
-
+    app.use("/checkouts", checkoutController);
+    app.use("/payments", paymentController)
+    
 app.use(express.urlencoded({ extended: false }))
 
 app.use(bodyParser.urlencoded({ extended: true }))
