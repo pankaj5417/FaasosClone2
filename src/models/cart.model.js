@@ -1,4 +1,4 @@
-const {Schema,model} = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const cartSchema = new Schema(
   {
@@ -7,10 +7,10 @@ const cartSchema = new Schema(
       ref: "user"
     },
     products: [
-       {   
-          type: Schema.Types.ObjectId,
-            ref: "product",
-          required: true
+      {
+        type: Schema.Types.ObjectId,
+        ref: "product",
+        required: true
       }
     ],
     active: {
@@ -25,4 +25,4 @@ const cartSchema = new Schema(
   { timestamps: true }
 );
 
-module.exports =model("cart", cartSchema);
+module.exports = model("cart", cartSchema);
