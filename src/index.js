@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 const userController = require("./controllers/register.controller");
 const { register, login } = require("./controllers/auth.controller");
 
-const cartController=require("./controllers/cart.controller")
+const cartController = require("./controllers/cart.controller")
 
 
 
@@ -29,20 +29,20 @@ app.use(express.json());
 
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post("/register",
-    body("phone").isLength({min:10}).withMessage("phone length must be at least 10 characters"), 
+    body("phone").isLength({ min: 10 }).withMessage("phone length must be at least 10 characters"),
     body('email').isEmail().normalizeEmail(),
-    body("name").isLength({min:3, max:10}).withMessage("name is required and has to be at least 3 characters"),
-   register);
+    body("name").isLength({ min: 3, max: 10 }).withMessage("name is required and has to be at least 3 characters"),
+    register);
 
 
-app.post("/login", body("phone").isLength({min:10}).withMessage("phone length must be at least 10 characters"),
-login);
+app.post("/login", body("phone").isLength({ min: 10 }).withMessage("phone length must be at least 10 characters"),
+    login);
 
 
-app.use(express.urlencoded({extended: false }))
+app.use(express.urlencoded({ extended: false }))
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
@@ -54,17 +54,17 @@ app.use(bodyParser.json())
 
 
 app.post("/register",
-    body("phone").isLength({min:10}).withMessage("phone length must be at least 10 characters"), 
+    body("phone").isLength({ min: 10 }).withMessage("phone length must be at least 10 characters"),
     body('email').isEmail().normalizeEmail(),
-    body("name").isLength({min:3, max:10}).withMessage("name is required and has to be at least 3 characters"),
-   register);
+    body("name").isLength({ min: 3, max: 10 }).withMessage("name is required and has to be at least 3 characters"),
+    register);
 
 
-app.post("/login", body("phone").isLength({min:10}).withMessage("phone length must be at least 10 characters"),
-login);
+app.post("/login", body("phone").isLength({ min: 10 }).withMessage("phone length must be at least 10 characters"),
+    login);
 
 
-app.use(express.urlencoded({extended: false }))
+app.use(express.urlencoded({ extended: false }))
 
 
 app.use(express.urlencoded({ extended: false }))

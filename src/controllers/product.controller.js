@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
   // return res.status(201).send(products)
   let user = "user"
 
-  return res.render("products/productpage", { products})
+  return res.render("products/productpage", { products })
 
 })
 
@@ -31,10 +31,10 @@ router.get("/single/:id", async (req, res) => {
   try {
 
     const product = await Product.findById(req.params.id).lean().exec();
-   
+
     return res.render("products/singleProduct", {
       product
-    }); 
+    });
 
   } catch (e) {
 
@@ -51,9 +51,9 @@ router.get("/single/:id", async (req, res) => {
 
 
 
- router.get("/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
 
-   const products = await Product.findById(req.params.id).lean().exec()
+  const products = await Product.findById(req.params.id).lean().exec()
 
   return res.render("products/single", { products })
 

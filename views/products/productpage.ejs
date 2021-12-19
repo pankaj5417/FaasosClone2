@@ -26,8 +26,9 @@
 
 <body onload="getData('<%= JSON.stringify(products) %>')">
 
-  
- 
+
+
+
 
 
 
@@ -187,7 +188,7 @@
         </div>
         <div id="empty-cart">
           <img src="https://pankaj5417.github.io/Faasos-clone/productpage/emptycart.png
-" alt=" empty cart" id ="empty-img">
+" alt=" empty cart" id="empty-img">
         </div>
 
         <div class=" center" id=cart-center>
@@ -224,11 +225,11 @@
 <script type=module src="/js/single_export.js"></script>
 <script>
   console.log(JSON.parse(localStorage.getItem("user")))
-  if(JSON.parse(localStorage.getItem("user"))){
+  if (JSON.parse(localStorage.getItem("user"))) {
     console.log("user from local storage and dont do any thing")
-  }else{
+  } else {
     var usr = '<%- JSON.stringify(user) %>';
-    localStorage.setItem('user',usr)
+    localStorage.setItem('user', usr)
 
   }
    // console.log(label)

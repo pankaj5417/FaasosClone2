@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/user.model");
 
 
-const details =require("../middlewares/upload")
+const details = require("../middlewares/upload")
 
 const { body, validationResult } = require('express-validator');
 
@@ -11,25 +11,25 @@ const newToken = (user) => {
   return jwt.sign({ user: user }, process.env.JWT_ACCESS_KEY);
 };
 
-const register =  async  (req, res) =>{
-  
+const register = async (req, res) => {
+
   try {
-    const errors=validationResult(req);
-        if(!errors.isEmpty()){
-            let a=errors.array().map(({msg,param,location})=>{
-                return {
-                    [param]:msg
-                }
-        })
-        return res.status(400).json({errors: a});
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      let a = errors.array().map(({ msg, param, location }) => {
+        return {
+          [param]: msg
+        }
+      })
+      return res.status(400).json({ errors: a });
     }
     // check if the email address provided already exist
 
-     user = await User.findOne({ email: req.body.email }).lean().exec();
+    user = await User.findOne({ email: req.body.email }).lean().exec();
 
     // if it already exists then throw an error
     if (user)
-      error =  res.status(400).json({
+      error = res.status(400).json({
         status: "failed",
         message: " Please provide a different email address",
       });
@@ -40,14 +40,14 @@ const register =  async  (req, res) =>{
       email: req.body.email,
       phone: req.body.phone,
     }
-      
+
     );
-    
+
 
     // we will create the token
     const token = newToken(user);
-    
-    
+
+
     // return the user and the token
     return res.redirect("/products")
   } catch (e) {
@@ -60,41 +60,41 @@ var error;
 const login = async (req, res) => {
   try {
 
-    const errors=validationResult(req);
-        if(!errors.isEmpty()){
-            let a=errors.array().map(({msg,param,location})=>{
-                return {
-                    [param]:msg
-                }
-        })
-        return res.status(400).json({errors: a});
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      let a = errors.array().map(({ msg, param, location }) => {
+        return {
+          [param]: msg
+        }
+      })
+      return res.status(400).json({ errors: a });
     }
-    
+
     // check if the email address provided already exist
-     user = await User.findOne({ phone: req.body.phone });
+    user = await User.findOne({ phone: req.body.phone });
 
     // if it does not exist then throw an error
-    if (!user){
-      
-       
+    if (!user) {
 
-      
+
+
+
     }
-    
-    
+
+
 
     // else we match the password
 
     // if not match then throw an error
-    
+
 
     // if it matches then create the token
     const token = newToken(user);
-  
-   
+
+
     // return the user and the token
-     res.redirect("/products")
-    
+    res.redirect("/products")
+
 
   } catch (e) {
     return res.status(500).json({ status: "failed", message: e.message });
@@ -103,4 +103,4 @@ const login = async (req, res) => {
 
 
 
-module.exports = { register, login,details };
+module.exports = { register, login, details };
