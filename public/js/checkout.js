@@ -14,6 +14,13 @@
 
 
 //         adding customize to the end of the html document
+let user = JSON.parse(localStorage.getItem("user"));
+//logged name & number
+document.getElementById("loggedName").innerText=user.name
+document.getElementById("loggedNumber").innerText=user.phone
+
+
+
 
 function customize() {
   return `   <!-- div for customization -->
@@ -683,8 +690,8 @@ document.getElementById("ham").onclick = () => {
        nam.innerText = arr2[arr2.length-1].name2
 
 //logged name & number
-document.getElementById("loggedName").innerText=arr2[arr2.length-1].name2
-document.getElementById("loggedNumber").innerText=arr2[arr2.length-1].number2
+document.getElementById("loggedName").innerText=user.name
+document.getElementById("loggedNumber").innerText=user.phone
 
 
 
