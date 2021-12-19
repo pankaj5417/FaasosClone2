@@ -3,6 +3,8 @@ const multer = require("multer")
 const path = require("path")
 //let ejs=require("ejs")
 const upload = require("../middlewares/upload")
+const User = require("../models/user.model");
+
 
 const Product = require("../models/product.model");
 
@@ -44,6 +46,16 @@ router.get("/single/:id", async (req, res) => {
   }
 
 })
+
+router.get("/product/:uid", async (req, res) => {
+  const products = await Product.find().lean().exec();
+
+  const user = await User.find({userId:req.params.uid})
+
+
+  return res.render("products/productpage", { products,user})
+});
+
 
 
 

@@ -136,7 +136,7 @@ document.querySelector(".custom-bottom").addEventListener("click", () => {
 
 
 
-    window.location.href = "/products/"
+    window.location.href = `/products/product/${user._id}`;
 
 
     // cartData();

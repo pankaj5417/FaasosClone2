@@ -224,14 +224,12 @@
 </html>
 <script type=module src="/js/single_export.js"></script>
 <script>
-  console.log(JSON.parse(localStorage.getItem("user")))
-  if (JSON.parse(localStorage.getItem("user"))) {
-    console.log("user from local storage and dont do any thing")
-  } else {
+
+  
     var usr = '<%- JSON.stringify(user) %>';
     localStorage.setItem('user', usr)
 
-  }
+  
    // console.log(label)
   // <span id='variableJSON' hidden>
    // <%= JSON.stringify(products); %>
