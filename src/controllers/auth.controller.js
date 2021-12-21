@@ -20,7 +20,7 @@ const register =  async  (req, res) =>{
                 }
         })
         return res.render('products/Landing.ejs'
-,{message: "Invalid Credentials"});
+,{message: "invalid Information"});
     }
     // check if the email address provided already exist
     user = await User.findOne({ email: req.body.email }).lean().exec();
