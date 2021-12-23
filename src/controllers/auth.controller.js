@@ -62,7 +62,7 @@ const login = async (req, res) => {
         return res.status(400).json({status: false,message:a});
     }
     // check if the email address provided already exist
-    const user = await User.findOne({ phone: req.body.phone });
+     user = await User.findOne({ phone: req.body.phone });
   
      data.push(user)
     // if it does not exist then throw an error
@@ -75,7 +75,8 @@ const login = async (req, res) => {
   const products = await Product.find()
   res.render("products/productpage.ejs",{products,user})
     // return the user and the token
-    return res.status(201).json({user});
+
+   // return res.status(201).json({user});
   } catch (e) {
     return res.status(500).json({ status: "failed", message: e.message });
   }
