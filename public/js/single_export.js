@@ -11,6 +11,12 @@ import { nav, sid } from "./navbar.js";
 document.getElementById("navbar2").innerHTML = sid;
 document.getElementById("navbar").innerHTML = nav;
 
+let user = JSON.parse(localStorage.getItem("user"));
+
+document.getElementById("logoImg").onclick=()=>{
+    window.location.href=`/products/product/${user._id}`
+}
+
 
 //ham
 document.getElementById("ham").onclick = () => {
