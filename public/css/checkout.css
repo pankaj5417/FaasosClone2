@@ -645,17 +645,8 @@ margin-top: 10px;
 }
 
 
-@media (max-width: 1050px){
-    .container > div{
-       display:block;
-    }
+@media screen and(min-width: 1000px){
     .hrow{
-        width: 100%;
-    }
-    .col-right{
-        width: 100%;
-    }
-    .col-left{
-        width: 100%;
+        flex-direction: column;
     }
 }

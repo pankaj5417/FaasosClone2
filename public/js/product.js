@@ -1050,7 +1050,7 @@ cartData();
 let checkouts = document.getElementById("checkout-button")
 checkouts.onclick = () => {
      window.location.href = "/checkouts";
-  console.log("checkouts")
+  console.log("checkout")
 }
 //function gotoCart(){
 //}

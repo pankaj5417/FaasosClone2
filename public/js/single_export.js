@@ -18,6 +18,7 @@ document.getElementById("logoImg").onclick=()=>{
 }
 
 
+
 //ham
 document.getElementById("ham").onclick = () => {
     document.getElementById("navbar2").style.width = "370px";

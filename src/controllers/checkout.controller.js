@@ -4,8 +4,7 @@ const Checkout = require("../models/checkout.model");
 
 const Address = require("../models/address.model");
 
-const Product = require("../models/product.model");
-const User = require("../models/user.model");
+const Product = require("../models/product.model")
 
 const router = express.Router();
 
@@ -13,10 +12,9 @@ const router = express.Router();
 // post:- Create a product
 router.post("", async (req, res) => {
     const address = await Address.create(req.body);
-    const user = await User.findOne({_id:req.params.uid }).lean().exec();
 
     return res.render('checkout/checkout.ejs', {
-        address,user
+        address,
         
     });
 
@@ -31,16 +29,14 @@ router.get("", async (req, res) => {
     const checkouts = await Checkout.find().lean().exec();
     const address = await Address.find().limit(1).lean().exec();
     const products = await Product.find().lean().exec();
-    //const user = await User.findOne({_id:req.params.uid }).lean().exec();
-
+    
 
     
     
     return res.render('checkout/checkout.ejs', {
         checkouts,
         address,
-        products,
-       // user
+        products
         
     });
 

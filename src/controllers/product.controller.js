@@ -18,14 +18,11 @@ router.get("/", async (req, res) => {
 
   const products = await Product.find().lean().exec()
 
-  const user = await User.findOne({_id:req.params.uid }).lean().exec();
-  console.log(user)
-
 
   // return res.status(201).send(products)
   
 
-  return res.render("products/productpage", { products,user})
+  return res.render("products/productpage", { products ,user})
 
 })
 
