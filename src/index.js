@@ -78,8 +78,8 @@ app.set("view engine", "ejs")
 
 
 
-app.use("/products", productController);
 app.use("/user", userController);
+app.use("/products", productController);
 app.get("/login", login)
 
 

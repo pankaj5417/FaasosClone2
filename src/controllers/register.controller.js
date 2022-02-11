@@ -9,7 +9,7 @@ router.get("/new", async (req, res) => {
   return res.render("products/new")
 })
 
-router.get("/", async (req, res) => {
+router.get("", async (req, res) => {
   return res.render("products/landing")
 })
 
