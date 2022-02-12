@@ -1,3 +1,5 @@
+
+/*
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
 
@@ -46,3 +48,4 @@ module.exports = async (req, res, next) => {
   // return next
   return next();
 };
+*/

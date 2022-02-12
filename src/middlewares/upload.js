@@ -1,3 +1,4 @@
+/*
 const multer = require("multer")
 
 const path = require("path")
@@ -35,3 +36,4 @@ module.exports = multer({
     fileSize: 1024 * 1024 * 5
   }
 })
+*/
