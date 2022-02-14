@@ -10,7 +10,7 @@ router.get("/new", async (req, res) => {
 })
 
 router.get("", async (req, res) => {
-  return res.render("products/landing")
+  return res.render("products/Landing.ejs")
 })
 
 
