@@ -645,8 +645,17 @@ margin-top: 10px;
 }
 
 
-@media screen and(min-width: 1000px){
+@media (max-width: 1050px){
+    .container > div{
+       display:block;
+    }
     .hrow{
-        flex-direction: column;
+        width: 100%;
+    }
+    .col-right{
+        width: 100%;
+    }
+    .col-left{
+        width: 100%;
     }
 }
